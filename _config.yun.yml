@@ -130,9 +130,9 @@ notice:
 # 背景图片
 bg_image:
   enable: true
-  url: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-0-blur-30px.jpg
-  # dark:
-  # blur: 30px # 设置背景模糊程度
+  url: https://kinxpeng.oss-cn-beijing.aliyuncs.com/image/cins-blog/2.jpeg?versionId=CAEQLRiBgMD.3tm7hBgiIDhkOGViMGFmMTIwNTQyZDU4MTJkNDljZDYyNzg0ZTIw
+  dark: https://kinxpeng.oss-cn-beijing.aliyuncs.com/image/cins-blog/1.webp?versionId=CAEQLRiBgMDE59W7hBgiIDg4MWJkYTBhNDk0MTRkY2I5YWEyYjkwMWFjYWU1ZDE0
+  blur: 5px # 设置背景模糊程度
   opacity: 0.8
 trianglify:
   enable: false
@@ -143,10 +143,10 @@ trianglify:
   opacity: 0.5
 
 sidebar:
-  bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-1.jpg
+  bg_image: https://kinxpeng.oss-cn-beijing.aliyuncs.com/image/cins-blog/2.jpeg?versionId=CAEQLRiBgMD.3tm7hBgiIDhkOGViMGFmMTIwNTQyZDU4MTJkNDljZDYyNzg0ZTIw
   bg_position: bottom 3rem center
   tagcloud:
-    enable: true
+    enable: false
     amount: 20
 
 # 关闭 highlight
