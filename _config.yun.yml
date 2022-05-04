@@ -88,7 +88,7 @@ social:
   - name: GitHub
     link: https://github.com/KinXpeng
     icon: icon-github-line
-    color: '#181717'
+    color: '#dd734f'
   - name: E-Mail
     link: mailto:kinxpeng@163.com
     icon: icon-mail-line
