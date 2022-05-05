@@ -4,7 +4,7 @@ mode: auto
 language: zh-CN
 banner:
   enable: true
-  title: 倾倾倾风の博客
+  title: 倾倾倾风
   border: true
   cloud:
     enable: true
