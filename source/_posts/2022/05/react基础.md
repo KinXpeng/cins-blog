@@ -1,7 +1,7 @@
 ---
 title: React 基础配置信息
 date: 2022-05-04 14:21:09
-id: 1
+id: 0501
 tags: React
 categories: React
 ---
