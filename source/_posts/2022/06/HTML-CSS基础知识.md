@@ -2,8 +2,8 @@
 title: HTML&CSS基础知识
 date: 2022-06-07 09:38:22
 id: 0601
-tags: Vue
-categories: Vue
+tags: ['HTML', 'CSS']
+categories: HTML
 ---
 
 ## HTML && CSS
