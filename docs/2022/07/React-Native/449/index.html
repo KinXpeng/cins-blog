@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="KinXpeng"><meta name="copyright" content="KinXpeng"><meta name="generator" content="Hexo 5.4.2"><meta name="theme" content="hexo-theme-yun"><title>macOS下搭建React Native的详细步骤 | 倾倾倾风の小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.2.4/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/mini.global.js"></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"blog.cins.cc","root":"/","title":"倾倾倾风","version":"1.8.11","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":null},"vendors":{"darken":"https://cdn.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><meta name="description" content="前言最近一直在做 app 方面的开发，目前来说最常用的还是uniapp，心里多少有点不太想使用这个多端开发，编辑器也不顺手，想起了react-native和flutter，相比起来熟悉 react 的我选择了前者。   开发平台macOS Big Sur 系统版本11.2 芯片intel，2017 款 8+256 （配置着实有点低） 配置环境说起配置环境，刚开始也不慌，毕竟作为开发配置过的环境已">
+<meta property="og:type" content="article">
+<meta property="og:title" content="macOS下搭建React Native的详细步骤">
+<meta property="og:url" content="https://blog.cins.cc/2022/07/React-Native/449/index.html">
+<meta property="og:site_name" content="倾倾倾风の小站">
+<meta property="og:description" content="前言最近一直在做 app 方面的开发，目前来说最常用的还是uniapp，心里多少有点不太想使用这个多端开发，编辑器也不顺手，想起了react-native和flutter，相比起来熟悉 react 的我选择了前者。   开发平台macOS Big Sur 系统版本11.2 芯片intel，2017 款 8+256 （配置着实有点低） 配置环境说起配置环境，刚开始也不慌，毕竟作为开发配置过的环境已">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1cabd042bdff4d0e8f828bfebd32b213~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e388853170ca4a36867705ca27164653~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/151f2bd3fd264e63b02b4d3b88364ece~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d8d43db41c1455abf48ffcb5222d159~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88c3ede7fc7d4f47a7d2b002c7dc72c6~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eaad2c19a5f34ca5b23817deeb7a89ea~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c69d8dd216ff4c1db2f7aaa8cc180f16~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9531d79c620c41e399a7358e29c635ff~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da235b2d35c040b0a01f55ec34351320~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3946428664ee45688684013d0fa726fe~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/26b0acded229401f9ce03fa4afd22c8b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e9382c19de645f99d3d18b66866a103~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa6aa8d7a32a440b97bceeb481b8b538~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8bcb80278bc4665861cd5be251c5f60~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f7340c241e94bac81cac5c4bd803039~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d0cabd3271d414bab0f018c5baf37b5~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d71da549646040629146c7992c5c572c~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ae12e4ac6004f569cbcebacf0ba9ded~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a7d3f0729f54ab5a8a01977a5d0e2c3~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2edd082217804406adc739f10fe52a92~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65db39ea25c94166b6a7f4414cd08724~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/813b861e366b45a2b5d35fcb1aacb270~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/126cc989cf3643caa1d03d24f1beadf1~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1731657f175f4cf58fadd2f247faa6f9~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a92abbff90914b95a60ee2da39e417f9~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19333635b61d42ccaa90cb90ebe1271e~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06108224e8bd4e718f11bb76891e7060~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b83f24cdc9e24ff1803ac31ddaad16e0~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/020ea69b9a3a4d588b2c5ce091f50990~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a7ecfac8a5a493bb4cb52a1e0ef28d9~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2022-07-12T01:33:39.000Z">
+<meta property="article:modified_time" content="2022-07-12T01:35:03.091Z">
+<meta property="article:author" content="KinXpeng">
+<meta property="article:tag" content="React Native">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1cabd042bdff4d0e8f828bfebd32b213~tplv-k3u1fbpfcp-watermark.image"><script>(function() {
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="KinXpeng"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="KinXpeng"></a><div class="site-author-name"><a href="/about/">KinXpeng</a></div><span class="site-name">倾倾倾风の小站</span><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">6</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">5</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">6</span></a></div><div class="site-state-item"><a href="/links/"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></span><span class="site-state-item-count">1</span></a></div><a class="site-state-item hty-icon-button" href="/albums/" title="相册"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://wpa.qq.com/msgrd?v=3&amp;uin=578090135&amp;site=qq&amp;menu=yes" title="QQ" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/KinXpeng" title="GitHub" target="_blank" style="color:#dd734f"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:kinxpeng@163.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://weibo.com/u/5123434857/home" title="微博" target="_blank" style="color:#E6162D"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-weibo-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="豆瓣" target="_blank" style="color:#007722"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-douban-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=116809620" title="网易云音乐" target="_blank" style="color:#C10D0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/ling-feng-86-71" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/19802757" title="哔哩哔哩动画" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="微信公众号" target="_blank" style="color:#1AAD19"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-2-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/KinXpeng" title="Twitter" target="_blank" style="color:#1da1f2"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-twitter-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E4%BE%9D%E8%B5%96%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">环境依赖安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA"><span class="toc-number">2.</span> <span class="toc-text">项目创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">安装软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E9%A1%B9%E7%9B%AE"><span class="toc-number">4.</span> <span class="toc-text">运行项目</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="https://blog.cins.cc/2022/07/React-Native/449/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="KinXpeng"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="倾倾倾风の小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">macOS下搭建React Native的详细步骤</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2022-07-12 09:33:39" itemprop="dateCreated datePublished" datetime="2022-07-12T09:33:39+08:00">2022-07-12</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/React-Native/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">React Native</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/React-Native/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">React Native</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><blockquote>
+<p>前言<br>最近一直在做 app 方面的开发，目前来说最常用的还是<code>uniapp</code>，心里多少有点不太想使用这个多端开发，编辑器也不顺手，想起了<code>react-native</code>和<code>flutter</code>，相比起来熟悉 react 的我选择了前者。</p>
+</blockquote>
+<ul>
+<li>开发平台<br>macOS Big Sur</li>
+<li>系统版本<br>11.2</li>
+<li>芯片<br>intel，2017 款 8+256 （配置着实有点低）<blockquote>
+<p>配置环境<br>说起配置环境，刚开始也不慌，毕竟作为开发配置过的环境已经很多了，但遇到了这个<code>react-native</code>不得不说一下。这是我配置 React-Native 环境的第三次吧，前两次不用说（失败了，每次都还耗费了两三个小时至少），这次也是耗费了三四个小时吧，勉强算是成功。心里也是松了口气，万事开头难，开头成功了相当于已经完成了 90%。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="环境依赖安装"><a href="#环境依赖安装" class="headerlink" title="环境依赖安装"></a>环境依赖安装</h3><p>基本配置如下：</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1cabd042bdff4d0e8f828bfebd32b213~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_11-17-48.png" loading="lazy"><br>附：我这里 pod -v 报错是因为使用的命令不对，改成 pod –version 就可以查看版本了。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e388853170ca4a36867705ca27164653~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_11-19-11.png" loading="lazy"><br><a target="_blank" rel="noopener" href="https://www.react-native.cn/">官网</a>的说法：</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/151f2bd3fd264e63b02b4d3b88364ece~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_13-52-04.png" loading="lazy"></p>
+<ul>
+<li>node 和 npm 的安装就不详说了，网上也有很多参考，重点说说下面的。</li>
+<li>关于 yarn：<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">npm install <span class="token operator">-</span>g yarn<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>react-native：<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">yarn add react<span class="token operator">-</span>native <span class="token operator">--</span>exact<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>brew：<br>brew 的安装可以参考<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/22122a1d4474">这篇文章</a></li>
+<li>watchman：<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">brew install watchman<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>pod（cocoapods）：<br><code>js brew install cocoapods </code><br>当以上这些安装好以及相应的版本号都能出现后，基本的环境搭建算是 OK 了，接下来就是创建项目和开发工具的搭建以及配置。（创建项目出错耗费了我好久）</li>
+</ul>
+<h3 id="项目创建"><a href="#项目创建" class="headerlink" title="项目创建"></a>项目创建</h3><ul>
+<li>使用 npx react-native 创建项目<br><code>js npx react-native init testapp </code><br>看起来一切顺利：</li>
+</ul>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d8d43db41c1455abf48ffcb5222d159~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_14-06-26.png" loading="lazy"><br>这个过程可能有点长（等了将近七八分钟）：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88c3ede7fc7d4f47a7d2b002c7dc72c6~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_14-10-31.png" loading="lazy"><br>估计就是连接不上外网，下载这个一般开个代理会比较快点，也可以运行下这个：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token number">1.</span>  git config <span class="token operator">--</span>global <span class="token operator">--</span>unset http<span class="token punctuation">.</span>proxy
+<span class="token number">2.</span>  git config <span class="token operator">--</span>global <span class="token operator">--</span>unset https<span class="token punctuation">.</span>proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>设置完成后再重新创建项目试试，没啥报错的话就 OK 了，可以直接到安装软件那一步了。</p>
+<p><strong>但是</strong>我的本地还是报这个错无法解决，最后我查了好久，试试 init 创建项目（如下）：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">react<span class="token operator">-</span>native init testapp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>结果</strong>呢，又出现了另一个错误：</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eaad2c19a5f34ca5b23817deeb7a89ea~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_11-20-31.png" loading="lazy"><br>此刻都有点想放弃了，配置个环境真麻烦。。。</p>
+<p>此时的项目结构是这样：</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c69d8dd216ff4c1db2f7aaa8cc180f16~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_13-16-08.png" loading="lazy"><br>然后各种百度、google 一大堆，有如下的方法：</p>
+<ul>
+<li>将 react-native 更新到最新<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">yarn add react<span class="token operator">-</span>native <span class="token operator">--</span>exact<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+结果还是一样。。。</li>
+<li>指定项目的版本号：（试了好几次不行，最后花了好长时间，用了一个低的版本创建，结果就成功了！！！应该算是成功了吧），至少不报刚才的错误了。<br><code>js react-native init testapp --version 0.44.0 </code><br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9531d79c620c41e399a7358e29c635ff~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_13-14-02.png" loading="lazy"></li>
+</ul>
+<p>效果如下：（出来了运行命令，应该是没多大问题了）</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da235b2d35c040b0a01f55ec34351320~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_13-14-34.png" loading="lazy"></p>
+<h3 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h3><ul>
+<li>上次安装了<code>Android Studio</code>，过程比较麻烦，后续环境没弄成功还被我卸载了。所以决定这次用 ios 的 Xcode 吧，反正也就是看看模拟器的效果。</li>
+<li>在 App Store 搜索 xcode 安装，安装的时候提示了我这个，特意看了下系统的版本要求：</li>
+</ul>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3946428664ee45688684013d0fa726fe~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_13-20-39.png" loading="lazy"><br>发现我自己的版本过低，万一安装出问题了重新下载比较麻烦（毕竟 10 多个 g）：</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/26b0acded229401f9ce03fa4afd22c8b~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_13-20-16.png" loading="lazy"></p>
+<ul>
+<li><p>去<a target="_blank" rel="noopener" href="https://xcodereleases.com/">官网</a>看看，下载之前的版本：</p>
+<p>这里可以看到与自己电脑相匹配版本的 xcode：</p>
+</li>
+</ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e9382c19de645f99d3d18b66866a103~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_13-22-31.png" loading="lazy"></p>
+<ul>
+<li>找到自己电脑匹配的进行下载，下载的时候还要登录 AppleID：</li>
+</ul>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa6aa8d7a32a440b97bceeb481b8b538~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_13-24-38.png" loading="lazy"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8bcb80278bc4665861cd5be251c5f60~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_13-25-09.png" loading="lazy"><br>这个过程可能有点久，网速好点的话可能会快点。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f7340c241e94bac81cac5c4bd803039~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_13-26-21.png" loading="lazy"></p>
+<ul>
+<li>大概半来个小时吧，下载完成（主要看网速），完成后进行解压安装，解压也有点久，如果版本匹配的话更推荐在 App Store 下载，因为解压太久了，我差不多花了半小时才解压完。</li>
+</ul>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d0cabd3271d414bab0f018c5baf37b5~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_14-44-45.png" loading="lazy"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d71da549646040629146c7992c5c572c~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_14-48-16.png" loading="lazy"></p>
+<p>解压完成后：（可能是把大多数的 ios 和 tv 的 jdk 都下载了，有点大吧）</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ae12e4ac6004f569cbcebacf0ba9ded~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_15-54-36.png" loading="lazy"></p>
+<ul>
+<li>项目的目录结构是这样：（看到有个 index.ios.js 和 index.android.js 感觉不太妙，因为老的版本有个两个文件，新版本的话只有 index.js）</li>
+</ul>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a7d3f0729f54ab5a8a01977a5d0e2c3~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_16-02-19.png" loading="lazy"></p>
+<ul>
+<li>Xcode 安装好后运行项目中的 ios 目录，选择好模拟器的型号后，点击这个三角形运行。</li>
+</ul>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2edd082217804406adc739f10fe52a92~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_16-05-15.png" loading="lazy"><br>如图所示：（等待开机）</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65db39ea25c94166b6a7f4414cd08724~tplv-k3u1fbpfcp-watermark.image" alt="468401657525269_.pic.jpg" loading="lazy"><br>开机后，又等了一会，也没有出现想象中欢迎的界面：（白白的啥也没有，应该是出问题了）</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/813b861e366b45a2b5d35fcb1aacb270~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_15-46-44.png" loading="lazy"></p>
+<ul>
+<li>重新建一个高点的版本项目试试：（这次不指定版本号了，感觉可能又要出其它问题）</li>
+<li>首先重新安装了下 cocoapods（一直是在安装 pods 依赖出的问题）<br><code>js sudo gem install cocoapods </code><br>关于 cocoapods 的问题可以参考这个<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/58934022/react-native-error-failed-to-install-cocoapods-dependencies-for-ios-project-w/62192886">链接</a>。<br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/126cc989cf3643caa1d03d24f1beadf1~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_16-15-58.png" loading="lazy"></li>
+<li>重新建项目<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">npx react<span class="token operator">-</span>native init AwesomeProject<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>又出现错误</li>
+</ul>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1731657f175f4cf58fadd2f247faa6f9~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_16-14-12.png" loading="lazy"></p>
+<ul>
+<li>这次按提示安装 pods（前几次也这样试了没用，这次在上面重新安装了执行）</li>
+</ul>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">cd <span class="token punctuation">.</span><span class="token operator">/</span>AwesmeProject<span class="token operator">/</span>ios <span class="token operator">&amp;&amp;</span> pod install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a92abbff90914b95a60ee2da39e417f9~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_16-37-57.png" loading="lazy"><br>等了一会儿，好像也没有错误了。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19333635b61d42ccaa90cb90ebe1271e~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_16-38-23.png" loading="lazy"></p>
+<h3 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h3><ul>
+<li>这次的目录结构不一样</li>
+</ul>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06108224e8bd4e718f11bb76891e7060~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_16-38-55.png" loading="lazy"><br>按照 package.json 中的命令运行 ios 项目</p>
+<ul>
+<li>用 Xcode 打开 ios 目录，运行后在建立索引，可能需要点时间，左侧是 ios 项目目录。</li>
+</ul>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b83f24cdc9e24ff1803ac31ddaad16e0~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_16-48-37.png" loading="lazy"></p>
+<ul>
+<li>模拟器效果（可以滑到第二页看到正在安装的 app）</li>
+</ul>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/020ea69b9a3a4d588b2c5ce091f50990~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_17-03-54.png" loading="lazy"></p>
+<ul>
+<li>等到安装完成，打开就能看到新建的项目了，这样就算是成功了。</li>
+</ul>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a7ecfac8a5a493bb4cb52a1e0ef28d9~tplv-k3u1fbpfcp-watermark.image" alt="Snipaste_2022-07-11_17-03-32.png" loading="lazy"></p>
+<blockquote>
+<p>如果以上帮到你的话，点个赞吧！</p>
+</blockquote>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="Donate" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">I'm so cute. Please give me money.</div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>KinXpeng</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://blog.cins.cc/2022/07/React-Native/449/" title="macOS下搭建React Native的详细步骤">https://blog.cins.cc/2022/07/React-Native/449/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul><script>document.addEventListener('copy', function (event) {
+  const clipboardData = event.clipboardData || window.clipboardData;
+  if (!clipboardData) { return; }
+  const text = window.getSelection().toString();
+  if (text) {
+    event.preventDefault();
+    clipboardData.setData('text/plain', text + '\n\nPost author: KinXpeng\nPost link: https://blog.cins.cc/2022/07/React-Native/449/\nCopyright Notice: All articles in this blog are licensed under CC BY-NC-SA 4.0 unless otherwise stated.');
+  }
+});</script></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2022/06/Vue/387/" rel="next" title="Vue中添加登录验证码功能"><span class="post-nav-text">Vue中添加登录验证码功能</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2022 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> KinXpeng</span></div><div class="live-time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2022-05-01T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = ` ${passDay} Days ${passHour} Hours ${passMinute} Minutes ${passSecond} Seconds`;
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><script>function initMourn() {
+  const date = new Date();
+  const today = (date.getMonth() + 1) + "-" + date.getDate()
+  const mourn_days = ["4-4","9-18","05-12"]
+  if (mourn_days.includes(today)) {
+    document.documentElement.style.filter = "grayscale(1)";
+  }
+}
+initMourn();</script></div></body></html>
