@@ -124,8 +124,8 @@ social:
 
 # 公告
 notice:
-  enable: false
-  content: Thanks for playing my game.
+  enable: true
+  content: 部分文章来自博主的掘金技术社区！ https://juejin.cn/user/3281399880616903
 
 # 背景图片
 bg_image:
