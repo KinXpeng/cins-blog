@@ -1,0 +1,773 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="KinXpeng"><meta name="copyright" content="KinXpeng"><meta name="generator" content="Hexo 5.4.2"><meta name="theme" content="hexo-theme-yun"><title>前端面试相关 | 倾倾倾风の小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.2.4/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/mini.global.js"></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"blog.cins.cc","root":"/","title":"倾倾倾风","version":"1.8.11","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":null},"vendors":{"darken":"https://cdn.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><meta name="description" content="eval&#x2F;&#x2F; eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码。 var x &#x3D; 10; console.log(eval(x + 17)); &#x2F;&#x2F; 输出结果：27  Promise axios 是一个基于 Promise 用于浏览器和 nodejs 的 HTTP 客户端，是 Promise 的实现版本，支持 Promise API  在 JavaScript 中，所">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试相关">
+<meta property="og:url" content="https://blog.cins.cc/2022/11/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/1105/index.html">
+<meta property="og:site_name" content="倾倾倾风の小站">
+<meta property="og:description" content="eval&#x2F;&#x2F; eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码。 var x &#x3D; 10; console.log(eval(x + 17)); &#x2F;&#x2F; 输出结果：27  Promise axios 是一个基于 Promise 用于浏览器和 nodejs 的 HTTP 客户端，是 Promise 的实现版本，支持 Promise API  在 JavaScript 中，所">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-18T02:14:02.000Z">
+<meta property="article:modified_time" content="2022-11-18T02:14:59.565Z">
+<meta property="article:author" content="KinXpeng">
+<meta property="article:tag" content="面试相关">
+<meta name="twitter:card" content="summary"><script>(function() {
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="KinXpeng"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="KinXpeng"></a><div class="site-author-name"><a href="/about/">KinXpeng</a></div><span class="site-name">倾倾倾风の小站</span><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">15</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">9</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">13</span></a></div><div class="site-state-item"><a href="/links/"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></span><span class="site-state-item-count">1</span></a></div><a class="site-state-item hty-icon-button" href="/albums/" title="相册"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://wpa.qq.com/msgrd?v=3&amp;uin=578090135&amp;site=qq&amp;menu=yes" title="QQ" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/KinXpeng" title="GitHub" target="_blank" style="color:#dd734f"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:kinxpeng@163.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://weibo.com/u/5123434857/home" title="微博" target="_blank" style="color:#E6162D"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-weibo-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="豆瓣" target="_blank" style="color:#007722"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-douban-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=116809620" title="网易云音乐" target="_blank" style="color:#C10D0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/ling-feng-86-71" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/19802757" title="哔哩哔哩动画" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="微信公众号" target="_blank" style="color:#1AAD19"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-2-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/KinXpeng" title="Twitter" target="_blank" style="color:#1da1f2"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-twitter-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#eval"><span class="toc-number">1.</span> <span class="toc-text">eval</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise"><span class="toc-number">2.</span> <span class="toc-text">Promise</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">性能优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%A8%E5%9F%9F%EF%BC%88%E5%9F%9F%E5%90%8D%E3%80%81%E5%8D%8F%E8%AE%AE%E3%80%81%E7%AB%AF%E5%8F%A3%E5%8F%B7%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">什么是跨域（域名、协议、端口号）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%88%E5%9F%BA%E7%A1%80-%E5%BC%95%E7%94%A8%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">js 数据类型（基础&#x2F;引用）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">兼容问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BFC%EF%BC%88Block-Formatting-Contexts%EF%BC%89%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">7.</span> <span class="toc-text">BFC（Block Formatting Contexts）块级格式化上下文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B%EF%BC%8C%E5%9E%82%E7%9B%B4%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD"><span class="toc-number">8.</span> <span class="toc-text">盒模型，垂直水平居中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#link-%E4%B8%8E-import-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">9.</span> <span class="toc-text">link 与@import 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F%E5%8E%9F%E5%9B%A0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">10.</span> <span class="toc-text">跨域原因和解决方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E3%80%81%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%92%8C%E9%97%AD%E5%8C%85"><span class="toc-number">11.</span> <span class="toc-text">原型、原型链和闭包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#es6-%E6%96%B0%E5%A2%9E%EF%BC%88let%E3%80%81const-%E5%92%8C-var-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%89%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E3%80%81%E6%8B%93%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E3%80%81async-await%E3%80%81Promise"><span class="toc-number">12.</span> <span class="toc-text">es6 新增（let、const 和 var 的区别）箭头函数、拓展运算符、解构赋值、async await、Promise</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cookie-%E5%92%8C-localStorage%E3%80%81sessionStorage-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">13.</span> <span class="toc-text">cookie 和 localStorage、sessionStorage 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#this-%E6%8C%87%E5%90%91%EF%BC%88call%E3%80%81apply-%E5%92%8C-bind%EF%BC%89"><span class="toc-number">14.</span> <span class="toc-text">this 指向（call、apply 和 bind）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined-%E5%92%8C-null-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">15.</span> <span class="toc-text">undefined 和 null 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E5%92%8C%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">16.</span> <span class="toc-text">箭头函数和普通函数的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81"><span class="toc-number">17.</span> <span class="toc-text">防抖与节流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#http-%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">18.</span> <span class="toc-text">http 状态码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue-%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">19.</span> <span class="toc-text">vue 的生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E5%AF%BC%E8%88%AA%E9%92%A9%E5%AD%90"><span class="toc-number">20.</span> <span class="toc-text">路由有哪几种导航钩子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue-%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">21.</span> <span class="toc-text">vue 双向绑定的原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E3%80%81vuex-%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86"><span class="toc-number">22.</span> <span class="toc-text">状态管理的使用、vuex 的使用与原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#computed-%E4%B8%8E-watch-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">23.</span> <span class="toc-text">computed 与 watch 的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-computed"><span class="toc-number">23.1.</span> <span class="toc-text">1.computed</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-watch"><span class="toc-number">23.2.</span> <span class="toc-text">2.watch</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue-%E7%BB%84%E4%BB%B6%E5%B0%81%E8%A3%85%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-number">24.</span> <span class="toc-text">vue 组件封装的过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E6%94%B9%E5%8F%98%E4%BD%86%E6%B2%A1%E6%9C%89%E6%B8%B2%E6%9F%93%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">25.</span> <span class="toc-text">属性改变但没有渲染的解决方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E6%96%B9%E6%A1%88-cdn-%E5%8A%A0%E9%80%9F"><span class="toc-number">26.</span> <span class="toc-text">前端性能优化的方案 cdn 加速</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E9%A1%B5%E9%9D%A2%E7%BA%A7%E5%88%AB%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-number">26.1.</span> <span class="toc-text">1.页面级别的优化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E4%BB%A3%E7%A0%81%E7%BA%A7%E5%88%AB%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-number">26.2.</span> <span class="toc-text">2.代码级别的优化</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E9%9B%85%E9%99%8D%E7%BA%A7%E5%92%8C%E6%B8%90%E8%BF%9B%E5%A2%9E%E5%BC%BA%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="toc-number">27.</span> <span class="toc-text">优雅降级和渐进增强是什么意思</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#px%E3%80%81em%E3%80%81rem-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">28.</span> <span class="toc-text">px、em、rem 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#webpack%E3%80%81gulp-%E5%92%8C-grunt-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">29.</span> <span class="toc-text">webpack、gulp 和 grunt 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#loader-%E5%92%8C-plugin-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">30.</span> <span class="toc-text">loader 和 plugin 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#router%E5%92%8C-route-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">31.</span> <span class="toc-text">$router和$route 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%87%8C%E5%BC%80%E9%A1%B5%E9%9D%A2%E6%9C%80%E5%A4%9A%E5%BC%80%E5%A4%9A%E5%B0%91"><span class="toc-number">32.</span> <span class="toc-text">小程序里开页面最多开多少</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UDP-%E5%92%8C-TCP-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">33.</span> <span class="toc-text">UDP 和 TCP 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nodeJS-%E4%B8%AD%E7%9A%84-stream%EF%BC%88%E6%B5%81%EF%BC%89"><span class="toc-number">34.</span> <span class="toc-text">nodeJS 中的 stream（流）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue-%E6%B8%B2%E6%9F%93%E6%96%B9%E5%BC%8F%EF%BC%9Arender-%E5%92%8C-template-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">35.</span> <span class="toc-text">vue 渲染方式：render 和 template 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XSS-%E5%92%8C-CSRF"><span class="toc-number">36.</span> <span class="toc-text">XSS 和 CSRF</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E6%B5%81%E7%A8%8B%EF%BC%8C%E4%BB%8E-tcp-%E8%AF%B7%E6%B1%82%E5%88%B0%E9%A1%B5%E9%9D%A2%E4%BA%A4%E4%BA%92"><span class="toc-number">37.</span> <span class="toc-text">前端页面加载流程，从 tcp 请求到页面交互</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97"><span class="toc-number">38.</span> <span class="toc-text">任务队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue-%E4%B8%AD%E7%9A%84-nextTick"><span class="toc-number">39.</span> <span class="toc-text">Vue 中的 nextTick</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue-%E5%86%85%E9%83%A8%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-number">40.</span> <span class="toc-text">Vue 内部页面的执行顺序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%A0%88"><span class="toc-number">41.</span> <span class="toc-text">执行栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84-Event-Loop"><span class="toc-number">42.</span> <span class="toc-text">浏览器中的 Event Loop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="toc-number">43.</span> <span class="toc-text">垃圾回收机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">44.</span> <span class="toc-text">设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">44.1.</span> <span class="toc-text">问题</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="https://blog.cins.cc/2022/11/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/1105/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="KinXpeng"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="倾倾倾风の小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">前端面试相关</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2022-11-18 10:14:02" itemprop="dateCreated datePublished" datetime="2022-11-18T10:14:02+08:00">2022-11-18</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">面试相关</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">面试相关</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h4 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码。</span>
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">eval</span><span class="token punctuation">(</span>x <span class="token operator">+</span> <span class="token number">17</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 输出结果：27</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h4><ul>
+<li><p>axios 是一个基于 Promise 用于浏览器和 nodejs 的 HTTP 客户端，是 Promise 的实现版本，支持 Promise API</p>
+</li>
+<li><p>在 JavaScript 中，所有代码都是单线程的，也就是同步执行的。而 Promise 就为==异步编程==提供了一种解决方案。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// do something here ...</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>success<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// fulfilled</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// rejected</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>该构造函数接收两个函数作为参数，分别是<code>resolve</code>和<code>reject</code>。<br>当异步操作执行成功后，会将异步操作结果作为参数传入<code>resolve</code>函数并执行，此时 <code>Promise</code>对象状态从<code>pending</code>变为<code>fulfilled</code>；<br>失败则会将异步操作的错误作为参数传入<code>reject</code>函数并执行，此时 <code>Promise</code>对象状态从<code>pending</code>变为<code>rejected</code>；</p>
+</li>
+<li><p>我们通过<code>then</code>方法，分别指定 resolved 状态和 rejected 状态的回调函数。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// success</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// failure</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>p1<span class="token punctuation">,</span> p2<span class="token punctuation">,</span> p3<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 把promise扔到一个数组里面，必须确保所有的promise对象都是resolve状态，才会返回</span>
+Promise<span class="token punctuation">.</span><span class="token function">race</span><span class="token punctuation">(</span><span class="token punctuation">[</span>p1<span class="token punctuation">,</span> p2<span class="token punctuation">,</span> p3<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 只要有一个是resolve状态，就返回</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1gW411H7B3?from=search&amp;seid=9803203589622689357">https://www.bilibili.com/video/BV1gW411H7B3?from=search&amp;seid=9803203589622689357</a></p>
+</li>
+</ul>
+<p>http 的==3 次握手==（前端页面的加载流程，从 TCP 请求到页面交互过程），常见状态码</p>
+<ul>
+<li><p>http 是超文本传输协议，是互联网上应用最广泛的一种网络协议</p>
+</li>
+<li><p>http==常见状态码==</p>
+<ul>
+<li>1xx：指示信息–表示请求已接收，继续处理。</li>
+<li>2xx：成功–表示请求已被成功接收、理解、接受。</li>
+<li>3xx：重定向–要完成请求必须进行更进一步的操作。</li>
+<li>4xx：客户端错误–请求有语法错误或请求无法实现。</li>
+<li>5xx：服务器端错误–服务器未能实现合法的请求。</li>
+</ul>
+</li>
+<li><p>HTTP 请求与响应步骤</p>
+<ol>
+<li><p>建立连接</p>
+<p>先解析 DNS，把 localhost 变成 ip（127.0.0.1），然后根据 127.0.0.1 和端口号 8080（没有端口号则使用默认的端口）建立 socket。也可以理解为通过“三次握手”建立 TCP 连接，确定通讯正常。</p>
+</li>
+<li><p>发送请求命令</p>
+<p>socket 建立好之后，客户端开始向 web 服务器发送请求命令（GET/POST 等）。</p>
+</li>
+<li><p>发送请求头（和请求正文（如果有））</p>
+<p>客户端先发送与自身相关的信息，再发送空行表示请求头发送完毕，如果是 post 则继续发送请求正文。</p>
+</li>
+<li><p>回传状态行</p>
+<p>应答第一步，发送协议版本和状态码（200、503、404 等）</p>
+</li>
+<li><p>回传应答头</p>
+<p>应答第二步，先发送自身相关信息、Content-Type(必须)及被请求的文档，在发送空行宝石应答头发送完毕。</p>
+</li>
+<li><p>回传应答正文</p>
+<p>应答第三步，根据应答头的 Content-Type 指定的格式发送应答正文。</p>
+</li>
+<li><p>关闭连接</p>
+<p>一次会话完成，如果设置了 Connection：keep-alive 则 TCP 连接不关闭，否则关闭连接。</p>
+</li>
+</ol>
+</li>
+<li><p>==TCP 三次握手==</p>
+<ol>
+<li><p>第一次握手</p>
+<p>建立连接。客户端发送连接请求报文段，将 SYN 位置为 1，Sequence Number 为 x；然后，客户端进入 SYN_SEND 状态，等待服务器的确认；</p>
+</li>
+<li><p>第二次握手</p>
+<p>服务器收到 SYN 报文段。服务器收到客户端的 SYN 报文段，需要对这个 SYN 报文段进行确认，设置 Acknowledgment Number 为 x+1(Sequence Number+1)；同时，自己自己还要发送 SYN 请求信息，将 SYN 位置为 1，Sequence Number 为 y；服务器端将上述所有信息放到一个报文段（即 SYN+ACK 报文段）中，一并发送给客户端，此时服务器进入 SYN_RECV 状态；</p>
+</li>
+<li><p>第三次握手</p>
+<p>客户端收到服务器的 SYN+ACK 报文段。然后将 Acknowledgment Number 设置为 y+1，向服务器发送 ACK 报文段，这个报文段发送完毕以后，客户端和服务器端都进入 ESTABLISHED 状态，完成 TCP 三次握手。</p>
+</li>
+</ol>
+<ul>
+<li>为什么要三次握手<ul>
+<li>为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误。</li>
+<li>具体例子：“已失效的连接请求报文段”的产生在这样一种情况下：client 发出的第一个连接请求报文段并没有丢失，而是在某个网络结点长时间的滞留了，以致延误到连接释放以后的某个时间才到达 server。本来这是一个早已失效的报文段。但 server 收到此失效的连接请求报文段后，就误认为是 client 再次发出的一个新的连接请求。于是就向 client 发出确认报文段，同意建立连接。假设不采用“三次握手”，那么只要 server 发出确认，新的连接就建立了。由于现在 client 并没有发出建立连接的请求，因此不会理睬 server 的确认，也不会向 server 发送数据。但 server 却以为新的运输连接已经建立，并一直等待 client 发来数据。这样，server 的很多资源就白白浪费掉了。采用“三次握手”的办法可以防止上述现象发生。例如刚才那种情况，client 不会向 server 的确认发出确认。server 由于收不到确认，就知道 client 并没有要求建立连接。”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>四次挥手</p>
+<ul>
+<li><p>第一次分手</p>
+<p>主机 1（可以使客户端，也可以是服务器端），设置 Sequence Number，向主机 2 发送一个 FIN 报文段；此时，主机 1 进入 FIN_WAIT_1 状态；这表示主机 1 没有数据要发送给主机 2 了；</p>
+</li>
+<li><p>第二次分手</p>
+<p>主机 2 收到了主机 1 发送的 FIN 报文段，向主机 1 回一个 ACK 报文段，Acknowledgment Number 为 Sequence Number 加 1；主机 1 进入 FIN_WAIT_2 状态；主机 2 告诉主机 1，我“同意”你的关闭请求；</p>
+</li>
+<li><p>第三次分手</p>
+<p>主机 2 向主机 1 发送 FIN 报文段，请求关闭连接，同时主机 2 进入 LAST_ACK 状态；</p>
+</li>
+<li><p>第四次分手</p>
+<p>主机 1 收到主机 2 发送的 FIN 报文段，向主机 2 发送 ACK 报文段，然后主机 1 进入 TIME_WAIT 状态；主机 2 收到主机 1 的 ACK 报文段以后，就关闭连接；此时，主机 1 等待 2MSL 后依然没有收到回复，则证明 Server 端已正常关闭，那好，主机 1 也可以关闭连接了。</p>
+</li>
+<li><p>为什么要四次分手</p>
+<p>TCP 协议是一种面向连接的、可靠的、基于字节流的运输层通信协议。TCP 是全双工模式，这就意味着，当主机 1 发出 FIN 报文段时，只是表示主机 1 已经没有数据要发送了，主机 1 告诉主机 2，它的数据已经全部发送完毕了；但是，这个时候主机 1 还是可以接受来自主机 2 的数据；当主机 2 返回 ACK 报文段时，表示它已经知道主机 1 没有数据发送了，但是主机 2 还是可以发送数据到主机 1 的；当主机 2 也发送了 FIN 报文段时，这个时候就表示主机 2 也没有数据要发送了，就会告诉主机 1，我也没有数据要发送了，之后彼此就会愉快的中断这次 TCP 连接。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33616529/article/details/78288883">https://blog.csdn.net/qq_33616529/article/details/78288883</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h4><h4 id="什么是跨域（域名、协议、端口号）"><a href="#什么是跨域（域名、协议、端口号）" class="headerlink" title="什么是跨域（域名、协议、端口号）"></a>什么是跨域（域名、协议、端口号）</h4><ul>
+<li>域名（包括二级域名）、协议（http/https）、端口号这三者其中有一个不同就是属于跨域</li>
+</ul>
+<h4 id="js-数据类型（基础-引用）"><a href="#js-数据类型（基础-引用）" class="headerlink" title="js 数据类型（基础/引用）"></a>js 数据类型（基础/引用）</h4><ul>
+<li><p>基础数据类型</p>
+<ul>
+<li>字符串（String）</li>
+<li>数字（Number）</li>
+<li>布尔（Boolean）</li>
+<li>对空（Null）</li>
+<li>未定义（Undefined）</li>
+<li>Symbol（它是 es6 引入的一种新的原始数据类型，表示独一无二的值）</li>
+</ul>
+</li>
+<li><p>引用数据类型</p>
+<ul>
+<li>对象（Object）（数组（Array）、函数（Function）都属于 object 类型）</li>
+</ul>
+</li>
+</ul>
+<h4 id="兼容问题"><a href="#兼容问题" class="headerlink" title="兼容问题"></a>兼容问题</h4><h4 id="BFC（Block-Formatting-Contexts）块级格式化上下文"><a href="#BFC（Block-Formatting-Contexts）块级格式化上下文" class="headerlink" title="BFC（Block Formatting Contexts）块级格式化上下文"></a>BFC（Block Formatting Contexts）块级格式化上下文</h4><ul>
+<li>BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之也如此。</li>
+<li>因为 BFC 内部的元素和外部的元素绝对不会互相影响，因此， 当 BFC 外部存在浮动时，它不应该影响 BFC 内部 Box 的布局，BFC 会通过变窄，而不与浮动有重叠。同样的，当 BFC 内部有浮动时，为了不影响外部元素的布局，BFC 计算高度时会包括浮动的高度。避免 margin 重叠也是这样的一个道理。</li>
+</ul>
+<h4 id="盒模型，垂直水平居中"><a href="#盒模型，垂直水平居中" class="headerlink" title="盒模型，垂直水平居中"></a>盒模型，垂直水平居中</h4><ul>
+<li><p>页面就是由一个个盒模型堆砌起来的，每个 HTML 元素都可以叫做盒模型，盒模型由外而内包括：边距（margin）、边框（border）、填充（padding）、内容（content）。它在页面中所占的实际宽度是 margin + border + paddint + content 的宽度相加。</p>
+</li>
+<li><p>方法</p>
+<ul>
+<li>```html<br>/<strong>html</strong>/<div class="parent">
+  <div class="child"></div>
+</div>
+/**css**/ .parent { position: relative; } .child { position: absolute; top:
+0; bottom: 0; left: 0; right: 0; margin: auto; }
+<pre class="line-numbers language-none"><code class="language-none">
+- &#96;&#96;&#96;html
+  .parent &#123; position: relative; &#125; .child &#123; position: absolute; left: 50%; top:
+  50%; transform: translate(-50%,-50%); &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ul>
+<h4 id="link-与-import-的区别"><a href="#link-与-import-的区别" class="headerlink" title="link 与@import 的区别"></a>link 与@import 的区别</h4><ul>
+<li>link 属于 HTML 标签，而@import 是 CSS 提供的;</li>
+<li>页面被加载的时，link 会同时被加载，而@import 引用的 CSS 会等到页面被加载完再加载;</li>
+<li>import 只在 IE5 以上才能识别，而 link 是 HTML 标签，无兼容问题;</li>
+<li>link 方式的样式的权重 高于@import 的权重.</li>
+</ul>
+<h4 id="跨域原因和解决方案"><a href="#跨域原因和解决方案" class="headerlink" title="跨域原因和解决方案"></a>跨域原因和解决方案</h4><ul>
+<li><p>原因见第 5 点</p>
+</li>
+<li><p>vue.config.js 中</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token literal-property property">devServer</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">host</span><span class="token operator">:</span> <span class="token string">"localhost"</span><span class="token punctuation">,</span> <span class="token comment">//要设置当前访问的ip 否则失效</span>
+  <span class="token literal-property property">port</span><span class="token operator">:</span> <span class="token number">8080</span><span class="token punctuation">,</span> <span class="token comment">//当前web服务端口</span>
+  <span class="token literal-property property">open</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//浏览器自动打开页面</span>
+  <span class="token literal-property property">proxy</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token string-property property">"/api"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">target</span><span class="token operator">:</span> <span class="token string">"https://www.kinxpeng.com/"</span><span class="token punctuation">,</span> <span class="token comment">//目标地址</span>
+      <span class="token literal-property property">ws</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//是否代理websocket</span>
+      <span class="token literal-property property">changeOrigin</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//是否跨域</span>
+      <span class="token literal-property property">pathRewrite</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token string-property property">"^/api"</span><span class="token operator">:</span> <span class="token string">"https://www.kinxpeng.com/"</span><span class="token punctuation">,</span> <span class="token comment">//url重写</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="原型、原型链和闭包"><a href="#原型、原型链和闭包" class="headerlink" title="原型、原型链和闭包"></a>原型、原型链和闭包</h4><h4 id="es6-新增（let、const-和-var-的区别）箭头函数、拓展运算符、解构赋值、async-await、Promise"><a href="#es6-新增（let、const-和-var-的区别）箭头函数、拓展运算符、解构赋值、async-await、Promise" class="headerlink" title="es6 新增（let、const 和 var 的区别）箭头函数、拓展运算符、解构赋值、async await、Promise"></a>es6 新增（let、const 和 var 的区别）箭头函数、拓展运算符、解构赋值、async await、Promise</h4><h4 id="cookie-和-localStorage、sessionStorage-的区别"><a href="#cookie-和-localStorage、sessionStorage-的区别" class="headerlink" title="cookie 和 localStorage、sessionStorage 的区别"></a>cookie 和 localStorage、sessionStorage 的区别</h4><ul>
+<li>cookie 只有 4KB 的大小</li>
+</ul>
+<h4 id="this-指向（call、apply-和-bind）"><a href="#this-指向（call、apply-和-bind）" class="headerlink" title="this 指向（call、apply 和 bind）"></a>this 指向（call、apply 和 bind）</h4><ul>
+<li><p>改变函数运行时的 this 指向</p>
+</li>
+<li><p>call、apply 与 bind 的差别</p>
+</li>
+<li><p>call 和 apply 改变了函数的 this 上下文后便执行该函数,而 bind 则是返回改变了上下文后的一个函数。</p>
+</li>
+<li><p>call、apply 的区别(call 传入的参数为参数列表形式)</p>
+<ul>
+<li><p>他们俩之间的差别在于参数的区别，call 和 apply 的第一个参数都是要改变上下文的对象，而==call==从第二个参数开始以==参数列表==的形式展现，==apply==则是把除了改变上下文对象的参数放在一个==数组==里面作为它的第二个参数。</p>
+</li>
+<li><p>```js<br>let arr1 = [1, 2, 19, 6];<br>console.log(Math.max.call(null, 1, 2, 19, 6)); // 19<br>console.log(Math.max.call(null, arr1)); // NaN<br>console.log(Math.max.apply(null, arr1)); //  19 直接可以用arr1传递进去</p>
+<pre class="line-numbers language-none"><code class="language-none">
+- &#96;&#96;&#96;js
+  function fn() &#123;
+    console.log(this);
+  &#125;
+  &#x2F;&#x2F; apply方法结果同下
+  fn.call(); &#x2F;&#x2F; 普通模式下this是window，在严格模式下this是undefined
+  fn.call(null); &#x2F;&#x2F; 普通模式下this是window，在严格模式下this是null
+  fn.call(undefined); &#x2F;&#x2F; 普通模式下this是window，在严格模式下this是undefined<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ul>
+<h4 id="undefined-和-null-的区别"><a href="#undefined-和-null-的区别" class="headerlink" title="undefined 和 null 的区别"></a>undefined 和 null 的区别</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">null</span> <span class="token operator">==</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">null</span> <span class="token operator">===</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>null 表示”没有对象”，即该处不应该有值。典型用法是：</p>
+<p>（1） 作为函数的参数，表示该函数的参数不是对象。</p>
+<p>（2） 作为对象原型链的终点。</p>
+</li>
+<li><p>undefined 表示”缺少值”，就是此处应该有一个值，但是还没有定义。典型用法是：</p>
+<p>（1）变量被声明了，但没有赋值时，就等于 undefined。</p>
+<p>（2) 调用函数时，应该提供的参数没有提供，该参数等于 undefined。</p>
+<p>（3）对象没有赋值的属性，该属性的值为 undefined。</p>
+<p>（4）函数没有返回值时，默认返回 undefined。</p>
+</li>
+</ul>
+<h4 id="箭头函数和普通函数的区别"><a href="#箭头函数和普通函数的区别" class="headerlink" title="箭头函数和普通函数的区别"></a>箭头函数和普通函数的区别</h4><ul>
+<li><p><strong>外形不同</strong></p>
+<p>箭头函数使用箭头定义，普通函数中没有</p>
+</li>
+<li><p><strong>箭头函数都是匿名函数</strong></p>
+<p>普通函数可以有匿名函数，也可以有具体名函数，但是箭头函数都是匿名函数。</p>
+</li>
+<li><p><strong>箭头函数不能用于构造函数，不能使用 new</strong></p>
+<p>普通函数可以用于构造函数，以此创建对象实例。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">let</span> admin <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">'小明'</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 小明</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 18</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>this 指向不同</p>
+<p>普通函数指向调用它的对象</p>
+<p>箭头函数本身没有 this（任何方法都改变不了其指向，如 call() , bind() , apply()）</p>
+</li>
+</ul>
+<h4 id="防抖与节流"><a href="#防抖与节流" class="headerlink" title="防抖与节流"></a>防抖与节流</h4><ul>
+<li><p>函数节流是指一定时间内 js 方法只跑一次</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 函数节流</span>
+<span class="token keyword">var</span> canRun <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'throttle'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function-variable function">onscroll</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>canRun<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 判断是否已空闲，如果在执行中，则直接return</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  canRun <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'函数节流'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    canRun <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>函数节流的要点是，声明一个变量当标志位，记录当前代码是否在执行。</strong></p>
+<p>如果空闲，则可以正常触发方法执行。</p>
+<p>如果代码正在执行，则取消这次方法执行，直接 return。</p>
+<p>用 setTimeout 规定最小的时间间隔 300，接着再执行 setTimeout 方法体里面的内容。</p>
+</li>
+<li><p>函数防抖是指频繁触发的情况下，只有足够的空闲时间，才执行代码一次。</p>
+<p>函数防抖的应用场景，最常见的就是用户注册时候的手机号码验证和邮箱验证了。只有等用户输入完毕后，前端才需要检查格式是否正确，如果不正确，再弹出提示语。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 函数防抖</span>
+<span class="token keyword">var</span> timer <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'debounce'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function-variable function">onscroll</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 清除未执行的代码，重置回初始化状态</span>
+  timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'函数防抖'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>函数防抖的要点，也是需要一个 setTimeout 来辅助实现。延迟执行需要跑的代码。</strong></p>
+<p>如果方法多次触发，则把上次记录的延迟执行代码用 clearTimeout 清掉，重新开始。</p>
+<p>如果计时完毕，没有方法进来访问触发，则执行代码。</p>
+</li>
+</ul>
+<h4 id="http-状态码"><a href="#http-状态码" class="headerlink" title="http 状态码"></a>http 状态码</h4><ul>
+<li><p>100 continue 继续</p>
+</li>
+<li><p>2xx</p>
+<ul>
+<li>200 ok 正常返回信息</li>
+<li>201 请求成功并且服务器创建了新的资源</li>
+<li>202 服务器已接受请求，但尚未处理</li>
+</ul>
+</li>
+<li><p>3xx</p>
+<ul>
+<li>301 请求的网页已永久移动到新位置</li>
+<li>302 临时重定向</li>
+<li>303 临时性重定向，且总是使用 GET 请求新的 URL</li>
+<li>304 自从上次请求后，请求的网页未修改过</li>
+</ul>
+</li>
+<li><p>4xx</p>
+<ul>
+<li>400 服务器无法理解请求的格式</li>
+<li>401 请求未授权</li>
+<li>403 禁止访问</li>
+<li>404 找不到如何与 url 相匹配的资源</li>
+</ul>
+</li>
+<li><p>5xx</p>
+<ul>
+<li><p>500 服务器端错误</p>
+</li>
+<li><p>503 服务器暂时无法处理请求(可能是过载或维护)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="vue-的生命周期"><a href="#vue-的生命周期" class="headerlink" title="vue 的生命周期"></a>vue 的生命周期</h4><ul>
+<li><p>一个生命周期的顺序</p>
+<ul>
+<li>beforeCreated</li>
+<li>created<ul>
+<li>data 已初始化，计算属性，event/watch 事件回调，但 dom 树并未挂载</li>
+</ul>
+</li>
+<li>beforeMount<ul>
+<li>在挂载前被调用，render 函数首次被调用生成虚拟 dom</li>
+</ul>
+</li>
+<li>mounted<ul>
+<li>挂载完成，dom 树已经渲染到页面，可以进行 dom 操作</li>
+</ul>
+</li>
+<li>beforeUpdate</li>
+<li>updated</li>
+<li>beforeDestroy</li>
+<li>destroyed</li>
+</ul>
+</li>
+</ul>
+<p>-</p>
+<h4 id="路由有哪几种导航钩子"><a href="#路由有哪几种导航钩子" class="headerlink" title="路由有哪几种导航钩子"></a>路由有哪几种导航钩子</h4><ul>
+<li><p>全局守卫</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 一般用于登录验证</span>
+router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> from<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// do someting</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>[beforeResolve]：这个钩子和 beforeEach 类似，也是路由跳转前触发，参数也是 to,from,next 三个<br>[afterEach]：和 beforeEach 相反，它是在路由跳转完成之后触发，参数包括 to、from，==没有了 next==</p>
+</li>
+<li><p>路由独享守卫</p>
+<ul>
+<li><p>[beforeEnter]：和 beforeEach 完全相同，如果都设置则在 beforeEach 之后紧随执行，参数有 to、from、next。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">cont router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">routes</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/file'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">component</span><span class="token operator">:</span> File<span class="token punctuation">,</span>
+      <span class="token function-variable function">beforeEnter</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> from <span class="token punctuation">,</span>next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// do someting</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p>局部守卫</p>
+<ul>
+<li><p>是指在组件内执行的钩子函数，类似于数组内的生命周期函数，相当于为配置路由的组件添加的生命周期钩子函数。钩子函数按执行顺序包括 beforeRouteEnter、beforeRouteUpdate(2.2 新增)、beforeRouteLeave 三个</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token literal-property property">routes</span><span class="token operator">:</span><span class="token punctuation">[</span>
+   <span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">path</span><span class="token operator">:</span><span class="token string">'/b'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">component</span><span class="token operator">:</span><span class="token constant">B</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">beforeEnter</span><span class="token operator">:</span><span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span>form<span class="token punctuation">,</span>next</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+         <span class="token operator">...</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+      <span class="token punctuation">&#125;</span>
+   <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ul>
+<h4 id="vue-双向绑定的原理"><a href="#vue-双向绑定的原理" class="headerlink" title="vue 双向绑定的原理"></a>vue 双向绑定的原理</h4><ul>
+<li><p>vue 双向数据绑定是通过 数据劫持 结合 发布订阅模式的方式来实现的， 也就是说数据和视图同步，数据发生变化，视图跟着变化，视图变化，数据也随之发生改变；</p>
+</li>
+<li><p>核心：关于 VUE 双向数据绑定，其核心是 Object.defineProperty()方法；</p>
+</li>
+<li><p>3.介绍一下 Object.defineProperty()方法<br>（1）Object.defineProperty(obj, prop, descriptor) ，这个语法内有三个参数，分别为 obj （要定义其上属性的对象） prop （要定义或修改的属性） descriptor （具体的改变方法）<br>（2）简单地说，就是用这个方法来定义一个值。当调用时我们使用了它里面的 get 方法，当我们给这个属性赋值时，又用到了它里面的 set 方法；</p>
+</li>
+<li><p>用 js 简单实现一个双向绑定</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--html--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>a<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>b<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// js</span>
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">'val'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">//  get: function () &#123;</span>
+  <span class="token comment">//    console.log("get被调用了");</span>
+  <span class="token comment">//  &#125;,</span>
+  <span class="token function-variable function">set</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#a'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#b'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'keyup'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  obj<span class="token punctuation">.</span>val <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="状态管理的使用、vuex-的使用与原理"><a href="#状态管理的使用、vuex-的使用与原理" class="headerlink" title="状态管理的使用、vuex 的使用与原理"></a>状态管理的使用、vuex 的使用与原理</h4><ul>
+<li>Vuex 是专门为 Vuejs 应用程序设计的<strong>状态管理工具</strong>。</li>
+</ul>
+<h4 id="computed-与-watch-的区别"><a href="#computed-与-watch-的区别" class="headerlink" title="computed 与 watch 的区别"></a>computed 与 watch 的区别</h4><ul>
+<li>computed 和 watch 的使用场景并不一样，computed 的话是<strong>通过几个数据的变化，来影响一个数据，</strong>而 watch，则是可以<strong>一个数据的变化，去影响多个数据。</strong></li>
+</ul>
+<h5 id="1-computed"><a href="#1-computed" class="headerlink" title="1.computed"></a>1.computed</h5><ul>
+<li>支持缓存，只有==依赖数据发生改变==，才会重新进行计算</li>
+<li>不支持异步，当 computed 内有异步操作时无效，无法监听数据的变化</li>
+<li>如果 computed 属性属性值是函数，那么默认会走 get 方法；函数的返回值就是属性的属性值；在 computed 中的，属性都有一个 get 和一个 set 方法，当数据变化时，调用 set 方法。</li>
+</ul>
+<h5 id="2-watch"><a href="#2-watch" class="headerlink" title="2.watch"></a>2.watch</h5><ul>
+<li>不支持缓存，但数据改变，直接会触发相应的操作；</li>
+<li>watch 支持异步；</li>
+<li>监听的函数接收两个参数，第一个参数是最新的值；第二个参数是输入之前的值，用来监听 input 然后进行一些即时搜索操作什么的。</li>
+</ul>
+<h4 id="vue-组件封装的过程"><a href="#vue-组件封装的过程" class="headerlink" title="vue 组件封装的过程"></a>vue 组件封装的过程</h4><ul>
+<li><p>首先，使用 Vue.extend()创建一个组件</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> myCom <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token string">'&lt;div>这是我的组件&lt;/div>'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p>然后，使用 Vue.component()方法注册组件</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// Vue.component('my-com',myCom);</span>
+<span class="token comment">/*局部注册组件*/</span>
+<span class="token keyword">var</span> app1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">el</span><span class="token operator">:</span> <span class="token string">'#app1'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">components</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token string-property property">'my-com'</span><span class="token operator">:</span> myCom<span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> app2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">el</span><span class="token operator">:</span> <span class="token string">'#app2'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>接着，如果子组件需要数据，可以在 props 中接受定义</p>
+</li>
+<li><p>最后，子组件修改好数据之后，想把数据传递给父组件，可以使用 emit()方法</p>
+</li>
+</ul>
+<h4 id="属性改变但没有渲染的解决方案"><a href="#属性改变但没有渲染的解决方案" class="headerlink" title="属性改变但没有渲染的解决方案"></a>属性改变但没有渲染的解决方案</h4><ul>
+<li><p>首先，在 Vue 2x 中数据的响应式处理是基于 Object.defineProperty() 的，但是它只会侦听对象的属性，并不能侦听对象。所以，在添加对象属性的时候，通常需要这样</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">Vue<span class="token punctuation">.</span><span class="token function">$set</span><span class="token punctuation">(</span>object<span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>但是面试的时候面试官问 Object.defineProperty()不能监听变化，为什么 push、unshift、splice 也能触发这就要分析 vue 源码，在源码中我们发现 vue 重写监听了 push、unshift、splice；</p>
+</li>
+</ul>
+<h4 id="前端性能优化的方案-cdn-加速"><a href="#前端性能优化的方案-cdn-加速" class="headerlink" title="前端性能优化的方案 cdn 加速"></a>前端性能优化的方案 cdn 加速</h4><h5 id="1-页面级别的优化"><a href="#1-页面级别的优化" class="headerlink" title="1.页面级别的优化"></a>1.页面级别的优化</h5><p>(1) 减少 HTTP 请求</p>
+<ul>
+<li>CSS 精灵图</li>
+<li>如果可以，尽量将外部的脚本、样式进行合并，多个合为一个。且 CSS，JS，image 都可以用相应工具进行压缩</li>
+<li>能使用 CSS 替代效果的尽量少使用图片</li>
+<li>图片懒加载。可以在某些条件下或者页面刚加载时减少 HTTP 请求数。</li>
+<li>CDN 托管</li>
+</ul>
+<p>(2) 减少 DNS 查询：DNS 缓存、将资源分布到恰当数量的主机名<br>(3) 将外部脚本置底<br>外链脚本在加载时，会阻塞其他资源。 最简单可依赖的方法是将脚本尽可能往后挪，减少对并发下载的影响。<br>(4) 将 CSS 放在 head 中<br>(5) 异步执行 inline 脚本。可使用 script 的 defer 属性，使用 setTimeout，HTML5 中的 web workers 机制等<br>(6) 合理设置 HTTP 缓存：Expires 与 Cache-control</p>
+<h5 id="2-代码级别的优化"><a href="#2-代码级别的优化" class="headerlink" title="2.代码级别的优化"></a>2.代码级别的优化</h5><p>(1) javascript</p>
+<ul>
+<li><p>用 innerHTML 代替 DOM 操作，减少 DOM 操作次数，优化 javascript 性能</p>
+</li>
+<li><p>慎用 with。with 相当于增加了作用域链的长度，过长的作用域链会导致查找性能下降</p>
+</li>
+<li><p>减少作用域链查找。若在循环中需要访问非本作用域下的变量，在遍历之前用局部变量缓存该变量，并在遍历结束之后再重复那个变量。全局变量处于作用域链的最顶端，访问时查找次数是最多的，所以少用全局变量。同时也要注意减少闭包的使用。</p>
+</li>
+<li><p>数据访问。js 中对直接量（字符串，正则表达式）和局部变量的访问最快。所以当：a.对任何对象属性访问超过 1 次；b. 对任何数组成员访问次数超过 1 次。可以将数据放入局部变量以加快访问速度。</p>
+<p>(2) CSS</p>
+</li>
+<li><p>使用 link 而不使用@import。link 在页面加载时 CSS 同时被加载，@import 引入的 CSS 要等页面加载完毕后再加载</p>
+</li>
+<li><p>设置 className 而不是直接使用 css 表达式</p>
+</li>
+<li><p>避免正则的属性选择器。</p>
+</li>
+</ul>
+<p>（3）异步加载</p>
+<p>​ 使用 Ajax 实现异步加载，例如，滚动页面加载后面的内容，这种也比较常见。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46680765/article/details/107354878?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&amp;dist_request_id=&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.control">https://blog.csdn.net/m0_46680765/article/details/107354878?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&amp;dist_request_id=&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.control</a></p>
+<h4 id="优雅降级和渐进增强是什么意思"><a href="#优雅降级和渐进增强是什么意思" class="headerlink" title="优雅降级和渐进增强是什么意思"></a>优雅降级和渐进增强是什么意思</h4><ul>
+<li>渐进增强和优雅降级这两个概念是在 CSS3 出现之后火起来的。由于低级浏览器不支持 CSS3，但是 CSS3 特效太优秀不忍放弃，所以在高级浏览器中使用 CSS3，而在低级浏览器只保证最基本的功能。二者的目的都是关注不同浏览器下的不同体验，但是它们侧重点不同，所以导致了工作流程上的不同。</li>
+</ul>
+<p><strong>优雅降级（Graceful Degradation）</strong>：一开始就构建站点的完整功能，然后针对浏览器测试和修复。比如一开始使用 CSS3 的特性构建了一个应用，然后逐步针对各大浏览器进行 hack 使其可以在低版本浏览器上正常浏览。</p>
+<p><strong>渐进增强（Progressive Enhancement）</strong>：一开始就针对低版本浏览器进行构建页面，完成基本的功能，然后再针对高级浏览器进行效果、交互、追加功能达到更好的体验。</p>
+<ul>
+<li><p>优雅降级和渐进增强都关注于同一网站在不同设备里不同浏览器下的表现程度。</p>
+<ul>
+<li>渐进增强的写法，优先考虑老版本浏览器的可用性，最后才考虑新版本的可用性。</li>
+<li>优雅降级的写法，优先考虑新版本浏览器的可用性，最后才考虑老版本的可用性。</li>
+</ul>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.transition</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/*渐进增强写法*/</span>
+  <span class="token property">-webkit-transition</span><span class="token punctuation">:</span> all 0.5s<span class="token punctuation">;</span>
+  <span class="token property">-moz-transition</span><span class="token punctuation">:</span> all 0.5s<span class="token punctuation">;</span>
+  <span class="token property">-o-transition</span><span class="token punctuation">:</span> all 0.5s<span class="token punctuation">;</span>
+  <span class="token property">transition</span><span class="token punctuation">:</span> all 0.5s<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.transition</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/*优雅降级写法*/</span>
+  <span class="token property">transition</span><span class="token punctuation">:</span> all 0.5s<span class="token punctuation">;</span>
+  <span class="token property">-o-transition</span><span class="token punctuation">:</span> all 0.5s<span class="token punctuation">;</span>
+  <span class="token property">-moz-transition</span><span class="token punctuation">:</span> all 0.5s<span class="token punctuation">;</span>
+  <span class="token property">-webkit-transition</span><span class="token punctuation">:</span> all 0.5s<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="px、em、rem-的区别"><a href="#px、em、rem-的区别" class="headerlink" title="px、em、rem 的区别"></a>px、em、rem 的区别</h4><ul>
+<li>px 是绝对单位，不会改变</li>
+<li>em 是相对于父元素<ul>
+<li>如当前对行内文本的字体尺寸未被人为设置，相对于浏览器的默认字体尺寸。</li>
+<li>em 的值并不是固定的；</li>
+<li>em 会继承父级元素的字体大小。</li>
+</ul>
+</li>
+<li>rem 是相对于根元素（相对于 html 元素）</li>
+</ul>
+<h4 id="webpack、gulp-和-grunt-的区别"><a href="#webpack、gulp-和-grunt-的区别" class="headerlink" title="webpack、gulp 和 grunt 的区别"></a>webpack、gulp 和 grunt 的区别</h4><ul>
+<li>gulp/grunt 是一种能够优化前端的开发的流程的工具，而 webpack 是一种模块化的解决方案，不过 webpack 的优点是在很多场景下可以代替 gulp 或 grunt 类的工具。</li>
+<li>Grunt 和 Gulp 的工作方式是：在一个配置文件中，指明对某些文件进行类似编译，组合，压缩等任务的具体步骤，工具之后可以自动替你完成这些任务。</li>
+<li>Webpack 的工作方式是：把你的项目当做一个整体，通过一个给定的主文件（如：index.js），Webpack 将从这个文件开始找到你的项目的所有依赖文件，使用 loaders 处理它们，最后打包为一个（或多个）浏览器可识别的 JavaScript 文件。</li>
+</ul>
+<h4 id="loader-和-plugin-的区别"><a href="#loader-和-plugin-的区别" class="headerlink" title="loader 和 plugin 的区别"></a>loader 和 plugin 的区别</h4><ul>
+<li><p>loader 是运行在 NodeJS 中，可以用 options 对象进行配置。plugin 可以为 loader 带来更多特性。loader 可以进行压缩，打包，语言翻译等等。</p>
+<p>loader 从模板路径解析，npm install node_modules。也可以自定义 loader，命名 XXX-loader。</p>
+</li>
+<li><p>【Plugin】：目的在于解决 loader 无法实现的其他事，从打包优化和压缩，到重新定义环境变量，功能强大到可以用来处理各种各样的任务。</p>
+</li>
+</ul>
+<h4 id="router和-route-的区别"><a href="#router和-route-的区别" class="headerlink" title="$router和$route 的区别"></a>$router和$route 的区别</h4><ul>
+<li>$router 是 VueRouter 的一个对象，通过 Vue.use(VueRouter)和 Vu 构造函数得到一个 router 的实例对象，这个对象中是一个全局的对象，他包含了所有的路由，包含了许多关键的对象和属性。<ul>
+<li>$router.push({path:’home’})，本质是向 history 栈中添加一个路由，在我们看来是切换路由，但本质是在添加一个 history 记录</li>
+<li>$router.replace({path:’home’})，//替换路由，没有历史记录</li>
+</ul>
+</li>
+<li>$route是一个跳转的路由对象，每一个路由都会有一个$route 对象，是一个局部的对象，可以获取对应的 name，path，params，query 等</li>
+</ul>
+<h4 id="小程序里开页面最多开多少"><a href="#小程序里开页面最多开多少" class="headerlink" title="小程序里开页面最多开多少"></a>小程序里开页面最多开多少</h4><ul>
+<li>10 个</li>
+</ul>
+<h4 id="UDP-和-TCP-的区别"><a href="#UDP-和-TCP-的区别" class="headerlink" title="UDP 和 TCP 的区别"></a>UDP 和 TCP 的区别</h4><ul>
+<li><p>UDP 三个特点（不需要建立连接，不需要验证数据报文，不需要流量控制，只会把想发的数据报文</p>
+<p>一股脑的丢给对端 ）</p>
+<ul>
+<li><p>面向无连接</p>
+</li>
+<li><p>不可靠性</p>
+</li>
+<li><p>高效（例如直播）</p>
+</li>
+</ul>
+</li>
+<li><p>TCP 连接时三次握手、断开时四次握手</p>
+</li>
+</ul>
+<h4 id="nodeJS-中的-stream（流）"><a href="#nodeJS-中的-stream（流）" class="headerlink" title="nodeJS 中的 stream（流）"></a>nodeJS 中的 stream（流）</h4><ul>
+<li>nodejs 中的流是可读的、或可写的、或可读可写的。并且流继承了 EventEmitter。因此所有的流都是 EventEmitter 的实列。</li>
+<li>Node.js 中有四种基本的流类型，如下：<ol>
+<li>Readable–可读的流(比如 fs.createReadStream())</li>
+<li>Writable–可写的流(比如 fs.createWriteStream())</li>
+<li>Duplex–可读写的流</li>
+<li>Transform—在读写过程中可以修改和变换数据的 Duplex 流</li>
+</ol>
+</li>
+</ul>
+<h4 id="vue-渲染方式：render-和-template-的区别"><a href="#vue-渲染方式：render-和-template-的区别" class="headerlink" title="vue 渲染方式：render 和 template 的区别"></a>vue 渲染方式：render 和 template 的区别</h4><ul>
+<li><p>render—-js 的方式做渲染</p>
+<ul>
+<li>render（提供）是一种编译方式</li>
+<li>render 里有一个函数 h，这个 h 的作用是将单文件组件进行虚拟 DOM 的创建，然后再通过 render 进行解析。</li>
+<li>h 就是 createElement()方法：createElement(标签名称,属性配置,children)</li>
+</ul>
+</li>
+<li><p>template—-html 的方式做渲染</p>
+<ul>
+<li>template 也是一种编译方式，但是 template 最终还是要通过 render 的方式再次进行编译。</li>
+</ul>
+</li>
+</ul>
+<h4 id="XSS-和-CSRF"><a href="#XSS-和-CSRF" class="headerlink" title="XSS 和 CSRF"></a>XSS 和 CSRF</h4><ul>
+<li><p>XSS</p>
+<ul>
+<li><p>XSS（Cross Site Scripting）:==跨域脚本攻击==。</p>
+</li>
+<li><p>XSS 简单点来说，就是攻击者想尽一切办法将可以执行的代码注入到网页中。</p>
+</li>
+<li><p>XSS 可以分为多种类型，但是总体上我认为分为两类：持久型和非持久型。</p>
+</li>
+<li><p>持久型也就是攻击的代码被服务端写入进数据库中，这种攻击危害性很大，因为如果网站访问量很大的话，就会导致大量正常访问页面的用户都受到攻击。</p>
+</li>
+<li><p>XSS 攻击的核心原理是：不需要你做任何的登录认证，它会通过合法的操作（比如在 url 中输入、在评论框中输入），向你的页面注入脚本（可能是 js、hmtl 代码块等）。</p>
+</li>
+</ul>
+</li>
+<li><p>CSRF</p>
+<ul>
+<li>CSRF 中文名为==跨站请求伪造==。原理就是攻击者构造出一个后端请求地址，诱导用户点击或者通过某些途径自动发起请求。如果用户是在登录状态下的话，后端就以为是用户在操作，从而进行相应的逻辑。</li>
+</ul>
+</li>
+</ul>
+<h4 id="前端页面加载流程，从-tcp-请求到页面交互"><a href="#前端页面加载流程，从-tcp-请求到页面交互" class="headerlink" title="前端页面加载流程，从 tcp 请求到页面交互"></a>前端页面加载流程，从 tcp 请求到页面交互</h4><ul>
+<li><p>浏览器查找域名对应的 IP 地址（域名解析的过程，先进行缓存的查看）</p>
+<ul>
+<li>先检查自己本地的 hosts 文件是否有这个网址映射关系</li>
+<li>查找本地 DNS 解析器缓存</li>
+<li>会找 TCP/ip 参数中设置的首选 DNS 服务器</li>
+</ul>
+</li>
+<li><p>浏览器根据 IP 地址与服务器建立 socket 连接</p>
+<ul>
+<li>在发送 http 请求前，需要域名解析(DNS 解析)，解析获取相应的 IP 地址</li>
+<li>浏览器向服务器发起 tcp 连接，与浏览器建立 tcp 三次握手</li>
+<li>握手成功后，浏览器向服务器发送 http 请求，请求数据包</li>
+</ul>
+</li>
+<li><p>浏览器与服务器通信： 浏览器请求，服务器处理请求</p>
+<ul>
+<li>服务器处理收到的请求，将数据返回至浏览器</li>
+<li>浏览器收到 HTTP 响应</li>
+<li>读取页面内容，浏览器渲染，解析 html 源码</li>
+<li>生成 Dom 树、解析 css 样式、js 交互</li>
+<li>客户端和服务器交互</li>
+<li>ajax 查询</li>
+</ul>
+</li>
+<li><p>浏览器与服务器断开连接</p>
+</li>
+</ul>
+<h4 id="任务队列"><a href="#任务队列" class="headerlink" title="任务队列"></a>任务队列</h4><ul>
+<li>Js 中，有两类任务队列：宏任务队列（macro tasks）和微任务队列（micro tasks）。==宏任务队列可以有多个，微任务队列只有一个==</li>
+<li>宏任务：script（全局任务）, setTimeout, setInterval, setImmediate, I/O, UI rendering.</li>
+<li>微任务：process.nextTick （node.js 中进程相关的对象）, Promise, Object.observer, MutationObserver。</li>
+</ul>
+<h4 id="Vue-中的-nextTick"><a href="#Vue-中的-nextTick" class="headerlink" title="Vue 中的 nextTick"></a>Vue 中的 nextTick</h4><ul>
+<li><code>Vue.nextTick</code>用于==延迟执行==一段代码，它接受 2 个参数（回调函数和执行回调函数的上下文环境），如果没有提供回调函数，那么将返回<code>promise</code>对象。</li>
+</ul>
+<h4 id="Vue-内部页面的执行顺序"><a href="#Vue-内部页面的执行顺序" class="headerlink" title="Vue 内部页面的执行顺序"></a>Vue 内部页面的执行顺序</h4><ul>
+<li>把模板编译为 render 函数</li>
+<li>实例进行挂载, 根据根节点 render 函数的调用，递归的生成虚拟 dom</li>
+<li>对比虚拟 dom，渲染到真实 dom</li>
+<li>组件内部 data 发生变化，组件和子组件引用 data 作为 props 重新调用 render 函数，生成虚拟 dom, 返回到步骤 3</li>
+</ul>
+<h4 id="执行栈"><a href="#执行栈" class="headerlink" title="执行栈"></a>执行栈</h4><ul>
+<li>可以把执行栈认为是一个存储函数调用的栈结构，遵循==先进后出==的原则。执行 JS 代码的时候其实就是往执行栈中放入函数。</li>
+<li>其实当遇到异步的代码时，会被挂起并在需要执行的时候加入到 Task（有多种 Task） 队列中。一旦执行栈为空，Event Loop 就会从 Task 队列中拿出需要执行的代码并放入执行栈中执行，所以本质上来说 JS 中的异步还是同步行为。</li>
+</ul>
+<h4 id="浏览器中的-Event-Loop"><a href="#浏览器中的-Event-Loop" class="headerlink" title="浏览器中的 Event Loop"></a>浏览器中的 Event Loop</h4><p>​ ==Event Loop 的执行顺序==</p>
+<ul>
+<li>首先执行同步代码，这属于宏任务</li>
+<li>当执行完所有同步代码后，执行栈为空，查询是否有异步代码需要执行</li>
+<li>执行所有微任务</li>
+<li>当执行完所有微任务后，如有必要会渲染页面</li>
+<li>然后开始下一轮 Event Loop，执行宏任务中的异步代码，也就是 setTimeout 中的回调函数</li>
+</ul>
+<h4 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h4><ul>
+<li><p>JavaScript 中的内存管理是自动执行的，而且是不可见的。我们创建基本类型、对象、函数……所有这些都需要内存。</p>
+</li>
+<li><p>可达性</p>
+<ul>
+<li>JavaScript 中内存管理的主要概念是可达性。</li>
+<li>简单地说，“可达性” 值就是那些以某种方式可访问或可用的值，它们被保证存储在内存中。</li>
+</ul>
+</li>
+<li><p>无法访问的数据模块</p>
+<ul>
+<li>有可能整个相互连接的对象变得不可访问并从内存中删除。</li>
+</ul>
+</li>
+<li><p>什么是垃圾</p>
+<ul>
+<li>一般来说==没有被引用的对象==就是垃圾，就是要被清除， 有个例外如果几个对象引用形成一个环，互相引用，但根访问不到它们，这几个对象也是垃圾，也要被清除。</li>
+</ul>
+</li>
+<li><p>如何检垃圾</p>
+<ul>
+<li>一种算法是标记 <strong>标记-清除</strong> 算法。</li>
+</ul>
+</li>
+</ul>
+<h4 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h4><ul>
+<li>设计原则<ul>
+<li>单一职责原则（SRP）<ul>
+<li>一个对象或方法只做一件事情。如果一个方法承担了过多的职责，那么在需求的变迁过程中，需要改写这个方法的可能性就越大。应该把对象或方法划分成较小的粒度。</li>
+</ul>
+</li>
+<li>最少知识原则（LKP）<ul>
+<li>一个软件实体应当 尽可能少地与其他实体发生相互作用 。</li>
+<li>应当尽量减少对象之间的交互。如果两个对象之间不必彼此直接通信，那么这两个对象就不要发生直接的 相互联系，可以转交给第三方进行处理。</li>
+</ul>
+</li>
+<li>开放-封闭原则（OCP）<ul>
+<li>软件实体（类、模块、函数）等应该是可以 扩展的，但是不可修改。</li>
+<li>当需要改变一个程序的功能或者给这个程序增加新功能的时候，可以使用增加代码的方式，尽量避免改动程序的源代码，防止影响原系统的稳定。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>在计算机科学中，语法糖(syntactic sugar)是指编程语言中可以更容易的表达一个操作的语法，它可以使程序员更加容易去使用这门语言：操作可以变得更加清晰、方便，或者更加符合程序员的编程习惯。</p>
+<p>前端框架对比 react 和 vue</p>
+<p>理解函数式组件的产生背景和优势</p>
+<p>js 的基础知识</p>
+<p>优化方案，建议从 tcp 请求到接口请求到页面的绘制</p>
+<h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><p>vue 中改变 id=1 的数据到页面刷新都经历了什么过程</p>
+<p>vue 中的 next tick</p>
+<p>promise 的.then()是同步的还是异步的</p>
+<p>浏览器输入网址到加载的过程（缓存）</p>
+<p>事件循环的理解 事件循环和任务队列</p>
+<p>数据加密</p>
+<p>设计模式</p>
+<p>未完待续。。。</p>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="Donate" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">I'm so cute. Please give me money.</div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>KinXpeng</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://blog.cins.cc/2022/11/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/1105/" title="前端面试相关">https://blog.cins.cc/2022/11/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/1105/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul><script>document.addEventListener('copy', function (event) {
+  const clipboardData = event.clipboardData || window.clipboardData;
+  if (!clipboardData) { return; }
+  const text = window.getSelection().toString();
+  if (text) {
+    event.preventDefault();
+    clipboardData.setData('text/plain', text + '\n\nPost author: KinXpeng\nPost link: https://blog.cins.cc/2022/11/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/1105/\nCopyright Notice: All articles in this blog are licensed under CC BY-NC-SA 4.0 unless otherwise stated.');
+  }
+});</script></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2022/11/react/1104/" rel="next" title="React基础知识"><span class="post-nav-text">React基础知识</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2022 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> KinXpeng</span></div><div class="live-time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2022-05-01T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = ` ${passDay} Days ${passHour} Hours ${passMinute} Minutes ${passSecond} Seconds`;
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><script>function initMourn() {
+  const date = new Date();
+  const today = (date.getMonth() + 1) + "-" + date.getDate()
+  const mourn_days = ["4-4","9-18","05-12"]
+  if (mourn_days.includes(today)) {
+    document.documentElement.style.filter = "grayscale(1)";
+  }
+}
+initMourn();</script></div></body></html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="KinXpeng"><meta name="copyright" content="KinXpeng"><meta name="generator" content="Hexo 5.4.2"><meta name="theme" content="hexo-theme-yun"><title>JavaScript基础知识 | 倾倾倾风の小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.2.4/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/mini.global.js"></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"blog.cins.cc","root":"/","title":"倾倾倾风","version":"1.8.11","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":null},"vendors":{"darken":"https://cdn.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><meta name="description" content="JavaScriptJS 中的 8 种数据类型及区别包括值类型(基本对象类型)和引用类型(复杂对象类型) 基本类型(值类型)： Number(数字),String(字符串),Boolean(布尔),Symbol(符号),null(空),undefined(未定义)在内存中占据固定大小，保存在栈内存中 引用类型(复杂数据类型)： Object(对象)、Function(函数)。其他还有 Array(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript基础知识">
+<meta property="og:url" content="https://blog.cins.cc/2022/11/JS/1103/index.html">
+<meta property="og:site_name" content="倾倾倾风の小站">
+<meta property="og:description" content="JavaScriptJS 中的 8 种数据类型及区别包括值类型(基本对象类型)和引用类型(复杂对象类型) 基本类型(值类型)： Number(数字),String(字符串),Boolean(布尔),Symbol(符号),null(空),undefined(未定义)在内存中占据固定大小，保存在栈内存中 引用类型(复杂数据类型)： Object(对象)、Function(函数)。其他还有 Array(">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/342e581223d2471d9484fc48beb9f8e1~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e362c1770f62428fbf3faabd99d2a64c~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="article:published_time" content="2022-11-18T02:07:45.000Z">
+<meta property="article:modified_time" content="2022-11-18T02:09:02.254Z">
+<meta property="article:author" content="KinXpeng">
+<meta property="article:tag" content="JS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/342e581223d2471d9484fc48beb9f8e1~tplv-k3u1fbpfcp-zoom-1.image"><script>(function() {
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="KinXpeng"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="KinXpeng"></a><div class="site-author-name"><a href="/about/">KinXpeng</a></div><span class="site-name">倾倾倾风の小站</span><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">15</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">9</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">13</span></a></div><div class="site-state-item"><a href="/links/"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></span><span class="site-state-item-count">1</span></a></div><a class="site-state-item hty-icon-button" href="/albums/" title="相册"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://wpa.qq.com/msgrd?v=3&amp;uin=578090135&amp;site=qq&amp;menu=yes" title="QQ" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/KinXpeng" title="GitHub" target="_blank" style="color:#dd734f"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:kinxpeng@163.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://weibo.com/u/5123434857/home" title="微博" target="_blank" style="color:#E6162D"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-weibo-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="豆瓣" target="_blank" style="color:#007722"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-douban-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=116809620" title="网易云音乐" target="_blank" style="color:#C10D0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/ling-feng-86-71" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/19802757" title="哔哩哔哩动画" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="微信公众号" target="_blank" style="color:#1AAD19"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-2-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/KinXpeng" title="Twitter" target="_blank" style="color:#1da1f2"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-twitter-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript"><span class="toc-number">1.</span> <span class="toc-text">JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS-%E4%B8%AD%E7%9A%84-8-%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.</span> <span class="toc-text">JS 中的 8 种数据类型及区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS-%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%96%B9%E6%A1%88"><span class="toc-number">1.2.</span> <span class="toc-text">JS 中的数据类型检测方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-typeof"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.typeof</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-instanceof"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.instanceof</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Object-prototype-toString-call"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.Object.prototype.toString.call()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#instanceof-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.2.4.</span> <span class="toc-text">instanceof 的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#instanceof-%E5%92%8C-typeof-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-number">1.2.5.</span> <span class="toc-text">instanceof 和 typeof 的区别：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#var-amp-amp-let-amp-amp-const"><span class="toc-number">1.3.</span> <span class="toc-text">var &amp;&amp; let &amp;&amp; const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="toc-number">1.4.</span> <span class="toc-text">作用域和作用域链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E7%9A%84%E4%B8%A4%E5%A4%A7%E4%BD%9C%E7%94%A8%EF%BC%9A%E4%BF%9D%E5%AD%98-%E4%BF%9D%E6%8A%A4"><span class="toc-number">1.5.</span> <span class="toc-text">闭包的两大作用：保存&#x2F;保护</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS-%E4%B8%AD-this-%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">1.6.</span> <span class="toc-text">JS 中 this 的情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#call-apply-bind-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.7.</span> <span class="toc-text">call&#x2F;apply&#x2F;bind 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">1.8.</span> <span class="toc-text">箭头函数的特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B-amp-amp-%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-number">1.9.</span> <span class="toc-text">原型 &amp;&amp; 原型链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new-%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6"><span class="toc-number">1.10.</span> <span class="toc-text">new 运算符的实现机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EventLoop-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.11.</span> <span class="toc-text">EventLoop 事件循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E7%8E%AF%EF%BC%88Event-Loop"><span class="toc-number">1.11.1.</span> <span class="toc-text">浏览器中的事件环（Event Loop)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Node-%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E7%8E%AF%EF%BC%88Event-Loop"><span class="toc-number">1.11.2.</span> <span class="toc-text">Node 环境中的事件环（Event Loop)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setTimeout%E3%80%81Promise%E3%80%81Async-Await-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.12.</span> <span class="toc-text">setTimeout、Promise、Async&#x2F;Await 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Async-Await-%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E5%90%8C%E6%AD%A5%E7%9A%84%E6%96%B9%E5%BC%8F%E5%AE%9E%E7%8E%B0%E5%BC%82%E6%AD%A5"><span class="toc-number">1.13.</span> <span class="toc-text">Async&#x2F;Await 如何通过同步的方式实现异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96%E5%8E%9F%E7%90%86%E3%80%81%E5%8C%BA%E5%88%AB%E4%BB%A5%E5%8F%8A%E5%BA%94%E7%94%A8"><span class="toc-number">1.14.</span> <span class="toc-text">介绍节流防抖原理、区别以及应用</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="https://blog.cins.cc/2022/11/JS/1103/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="KinXpeng"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="倾倾倾风の小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">JavaScript基础知识</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2022-11-18 10:07:45" itemprop="dateCreated datePublished" datetime="2022-11-18T10:07:45+08:00">2022-11-18</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/JS/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">JS</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/JS/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">JS</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="JS-中的-8-种数据类型及区别"><a href="#JS-中的-8-种数据类型及区别" class="headerlink" title="JS 中的 8 种数据类型及区别"></a>JS 中的 8 种数据类型及区别</h3><p>包括值类型(基本对象类型)和引用类型(复杂对象类型)</p>
+<p><strong>基本类型(值类型)：</strong> Number(数字),String(字符串),Boolean(布尔),Symbol(符号),null(空),undefined(未定义)在内存中占据固定大小，保存在栈内存中</p>
+<p><strong>引用类型(复杂数据类型)：</strong> Object(对象)、Function(函数)。其他还有 Array(数组)、Date(日期)、RegExp(正则表达式)、特殊的基本包装类型(String、Number、Boolean) 以及单体内置对象(Global、Math)等 引用类型的值是对象 保存在堆内存中，栈内存存储的是对象的变量标识符以及对象在堆内存中的存储地址。</p>
+<p><strong>使用场景：</strong></p>
+<p>Symbol：使用 Symbol 来作为对象属性名(key) 利用该特性，把一些不需要对外操作和访问的属性使用 Symbol 来定义</p>
+<p>BigInt：由于在 Number 与 BigInt 之间进行转换会损失精度，因而建议仅在值可能大于 253 时使用 BigInt 类型，并且不在两种类型之间进行相互转换。</p>
+<p>传送门 ☞<a target="_blank" rel="noopener" href="https://juejin.cn/post/7000754813801775111"># JavaScript 数据类型之 Symbol、BigInt</a></p>
+<h3 id="JS-中的数据类型检测方案"><a href="#JS-中的数据类型检测方案" class="headerlink" title="JS 中的数据类型检测方案"></a>JS 中的数据类型检测方案</h3><h4 id="1-typeof"><a href="#1-typeof" class="headerlink" title="1.typeof"></a>1.typeof</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// number</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// boolean</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token string">'mc'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// string</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> Symbol<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// function</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// function</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// function</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// object</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// object</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// object</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>优点：能够快速区分基本数据类型</p>
+<p>缺点：不能将 Object、Array 和 Null 区分，都返回 object</p>
+<h4 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof"></a>2.instanceof</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token keyword">instanceof</span> <span class="token class-name">Number</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token boolean">true</span> <span class="token keyword">instanceof</span> <span class="token class-name">Boolean</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'str'</span> <span class="token keyword">instanceof</span> <span class="token class-name">String</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">instanceof</span> <span class="token class-name">Array</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token keyword">instanceof</span> <span class="token class-name">Function</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>优点：能够区分 Array、Object 和 Function，适合用于判断自定义的类实例对象</p>
+<p>缺点：Number，Boolean，String 基本数据类型不能判断</p>
+<h4 id="3-Object-prototype-toString-call"><a href="#3-Object-prototype-toString-call" class="headerlink" title="3.Object.prototype.toString.call()"></a>3.Object.prototype.toString.call()</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> toString <span class="token operator">=</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[object Number]</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[object Boolean]</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token string">'mc'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[object String]</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[object Array]</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[object Object]</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[object Function]</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">undefined</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[object Undefined]</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[object Null]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>优点：精准判断数据类型</p>
+<p>缺点：写法繁琐不容易记，推荐进行封装后使用</p>
+<h4 id="instanceof-的作用"><a href="#instanceof-的作用" class="headerlink" title="instanceof 的作用"></a>instanceof 的作用</h4><p>用于判断一个引用类型是否属于某构造函数；</p>
+<p>还可以在继承关系中用来判断一个实例是否属于它的父类型。</p>
+<h4 id="instanceof-和-typeof-的区别："><a href="#instanceof-和-typeof-的区别：" class="headerlink" title="instanceof 和 typeof 的区别："></a>instanceof 和 typeof 的区别：</h4><p>typeof 在对值类型 number、string、boolean 、null 、 undefined、 以及引用类型的 function 的反应是精准的；但是，对于对象{ } 、数组[ ] 、null 都会返回 object</p>
+<p>为了弥补这一点，instanceof 从原型的角度，来判断某引用属于哪个构造函数，从而判定它的数据类型。</p>
+<h3 id="var-amp-amp-let-amp-amp-const"><a href="#var-amp-amp-let-amp-amp-const" class="headerlink" title="var &amp;&amp; let &amp;&amp; const"></a>var &amp;&amp; let &amp;&amp; const</h3><p>ES6 之前创建变量用的是 var,之后创建变量用的是 let/const</p>
+<p><strong>三者区别</strong>：</p>
+<ol>
+<li>var 定义的变量，<code>没有块的概念，可以跨块访问</code>, 不能跨函数访问。<br> let 定义的变量，只能在块作用域里访问，不能跨块访问，也不能跨函数访问。<br> const 用来定义常量，使用时必须初始化(即必须赋值)，只能在块作用域里访问，且不能修改。</li>
+<li> var 可以<code>先使用，后声明</code>，因为存在变量提升；let 必须先声明后使用。</li>
+<li> var 是允许在相同作用域内<code>重复声明同一个变量</code>的，而 let 与 const 不允许这一现象。</li>
+<li>在全局上下文中，基于 let 声明的全局变量和全局对象 GO（window）没有任何关系 ;<br> var 声明的变量会和 GO 有映射关系；</li>
+<li> <code>会产生暂时性死区</code>：</li>
+</ol>
+<blockquote>
+<p>暂时性死区是浏览器的 bug：检测一个未被声明的变量类型时，不会报错，会返回 undefined<br>如：console.log(typeof a) //undefined<br>而：console.log(typeof a)//未声明之前不能使用<br>let a</p>
+</blockquote>
+<ol start="6">
+<li> let /const/function 会把当前所在的大括号(除函数之外)作为一个全新的块级上下文，应用这个机制，在开发项目的时候，遇到循环事件绑定等类似的需求，无需再自己构建闭包来存储，只要基于 let 的块作用特征即可解决</li>
+</ol>
+<h3 id="作用域和作用域链"><a href="#作用域和作用域链" class="headerlink" title="作用域和作用域链"></a>作用域和作用域链</h3><p>创建函数的时候，已经声明了当前函数的作用域==&gt;<code>当前创建函数所处的上下文</code>。如果是在全局下创建的函数就是<code>[[scope]]:EC(G)</code>，函数执行的时候，形成一个全新的私有上下文<code>EC(FN)</code>，供字符串代码执行(进栈执行)</p>
+<p>定义：简单来说作用域就是变量与函数的可访问范围，<code>由当前环境与上层环境的一系列变量对象组成</code><br>1.全局作用域：代码在程序的任何地方都能被访问，window 对象的内置属性都拥有全局作用域。<br>2.函数作用域：在固定的代码片段才能被访问</p>
+<p>作用：作用域最大的用处就是<code>隔离变量</code>，不同作用域下同名变量不会有冲突。</p>
+<p><strong>作用域链参考链接</strong>一般情况下，变量到 创建该变量 的函数的作用域中取值。但是如果在当前作用域中没有查到，就会向上级作用域去查，直到查到全局作用域，这么一个查找过程形成的链条就叫做作用域链。</p>
+<h3 id="闭包的两大作用：保存-保护"><a href="#闭包的两大作用：保存-保护" class="headerlink" title="闭包的两大作用：保存/保护"></a>闭包的两大作用：保存/保护</h3><ul>
+<li><p><strong>闭包的概念</strong></p>
+<p>函数执行时形成的私有上下文 EC(FN)，正常情况下，代码执行完会出栈后释放;但是特殊情况下，如果当前私有上下文中的某个东西被上下文以外的事物占用了，则上下文不会出栈释放，从而形成不销毁的上下文。 函数执行函数执行过程中，会形成一个全新的私有上下文，可能会被释放，可能不会被释放，不论释放与否，他的作用是：</p>
+</li>
+</ul>
+<p>（1）保护：划分一个独立的代码执行区域，在这个区域中有自己私有变量存储的空间，保护自己的私有变量不受外界干扰（操作自己的私有变量和外界没有关系）；</p>
+<p>（2）保存：如果当前上下文不被释放【只要上下文中的某个东西被外部占用即可】，则存储的这些私有变量也不会被释放，可以供其下级上下文中调取使用，相当于把一些值保存起来了；</p>
+<p>我们把函数执行形成私有上下文，来保护和保存私有变量机制称为<code>闭包</code>。</p>
+<blockquote>
+<p>闭包是指有权访问另一个函数作用域中的变量的函数–《JavaScript 高级程序设计》</p>
+</blockquote>
+<p><strong>稍全面的回答</strong>： 在 js 中变量的作用域属于函数作用域, 在函数执行完后,作用域就会被清理,内存也会随之被回收,但是由于闭包函数是建立在函数内部的子函数, 由于其可访问上级作用域,即使上级函数执行完, 作用域也不会随之销毁, 这时的子函数(也就是闭包),便拥有了访问上级作用域中变量的权限,即使上级函数执行完后作用域内的值也不会被销毁。</p>
+<ul>
+<li><p><strong>闭包的特性</strong>：</p>
+<ul>
+<li><p>1、内部函数可以访问定义他们外部函数的参数和变量。(作用域链的向上查找，把外围的作用域中的变量值存储在内存中而不是在函数调用完毕后销毁)设计私有的方法和变量，避免全局变量的污染。</p>
+<p>1.1.闭包是密闭的容器，，类似于 set、map 容器，存储数据的</p>
+<p>1.2.闭包是一个对象，存放数据的格式为 key-value 形式</p>
+</li>
+<li><p>2、函数嵌套函数</p>
+</li>
+<li><p>3、本质是将函数内部和外部连接起来。优点是可以读取函数内部的变量，让这些变量的值始终保存在内存中，不会在函数被调用之后自动清除</p>
+</li>
+</ul>
+</li>
+<li><p><strong>闭包形成的条件</strong>：</p>
+<ol>
+<li> 函数的嵌套</li>
+<li> 内部函数引用外部函数的局部变量，延长外部函数的变量生命周期</li>
+</ol>
+</li>
+<li><p><strong>闭包的用途</strong>：</p>
+<ol>
+<li> 模仿块级作用域</li>
+<li> 保护外部函数的变量 能够访问函数定义时所在的词法作用域(阻止其被回收)</li>
+<li> 封装私有化变量</li>
+<li> 创建模块</li>
+</ol>
+</li>
+<li><p><strong>闭包应用场景</strong></p>
+<p>闭包的两个场景，闭包的两大作用：<code>保存/保护</code>。 在开发中, 其实我们随处可见闭包的身影, 大部分前端 JavaScript 代码都是“事件驱动”的,即一个事件绑定的回调方法; 发送 ajax 请求成功|失败的回调;setTimeout 的延时回调;或者一个函数内部返回另一个匿名函数,这些都是闭包的应用。</p>
+</li>
+<li><p><strong>闭包的优点</strong>：延长局部变量的生命周期</p>
+</li>
+<li><p><strong>闭包缺点</strong>：会导致函数的变量一直保存在内存中，过多的闭包可能会导致内存泄漏</p>
+</li>
+</ul>
+<h3 id="JS-中-this-的情况"><a href="#JS-中-this-的情况" class="headerlink" title="JS 中 this 的情况"></a>JS 中 this 的情况</h3><ol>
+<li>普通函数调用：通过函数名()直接调用：<code>this</code>指向<code>全局对象window</code>（注意 let 定义的变量不是 window 属性，只有 window.xxx 定义的才是。即 let a =’aaa’; this.a 是 undefined）</li>
+<li>构造函数调用：函数作为构造函数，用 new 关键字调用时：<code>this</code>指向<code>新new出的对象</code></li>
+<li>对象函数调用：通过对象.函数名()调用的：<code>this</code>指向<code>这个对象</code></li>
+<li>箭头函数调用：箭头函数里面没有 this ，所以<code>永远是上层作用域this</code>（上下文）</li>
+<li>apply 和 call 调用：函数体内 this 的指向的是 call/apply 方法<code>第一个参数</code>，若为空默认是指向全局对象 window。</li>
+<li>函数作为数组的一个元素，通过数组下标调用的：this 指向这个数组</li>
+<li>函数作为 window 内置函数的回调函数调用：this 指向 window（如 setInterval setTimeout 等）</li>
+</ol>
+<h3 id="call-apply-bind-的区别"><a href="#call-apply-bind-的区别" class="headerlink" title="call/apply/bind 的区别"></a>call/apply/bind 的区别</h3><p>相同：</p>
+<p>1、都是用来改变函数的 this 对象的指向的。<br>2、第一个参数都是 this 要指向的对象。<br>3、都可以利用后续参数传参。</p>
+<p>不同：</p>
+<p>apply 和 call 传入的参数列表形式不同。apply 接收 arguments，call 接收一串参数列表</p>
+<pre class="line-numbers language-none"><code class="language-none">fn.call(obj, 1, 2);
+fn.apply(obj, [1, 2]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>bind：语法和 call 一模一样，区别在于立即执行还是等待执行，bind 不兼容 IE6~8<br>bind 主要就是将函数绑定到某个对象，bind()会创建一个函数，返回对应函数便于稍后调用；而 apply、call 则是立即调用。</p>
+<p>总结：基于 Function.prototype 上的 <code>apply 、 call 和 bind </code>调用模式，这三个方法都可以显示的指定调用函数的 this 指向。<code>apply</code>接收参数的是数组，<code>call</code>接受参数列表，`` bind<code>方法通过传入一个对象，返回一个</code>this<code>绑定了传入对象的新函数。这个函数的</code>this<code>指向除了使用</code>new `时会被改变，其他情况下都不会改变。若为空默认是指向全局对象 window。</p>
+<p>参考：☞ <a target="_blank" rel="noopener" href="https://blog.csdn.net/hexinyu_1022/article/details/82795517">call、apply、bind 三者的用法和区别</a></p>
+<h3 id="箭头函数的特性"><a href="#箭头函数的特性" class="headerlink" title="箭头函数的特性"></a>箭头函数的特性</h3><ol>
+<li> <code>箭头函数没有自己的this</code>，会捕获其所在的上下文的 this 值，作为自己的 this 值</li>
+<li> <code>箭头函数没有constructor</code>，是匿名函数，不能作为构造函数，不能通过 new 调用；</li>
+<li> <code>没有new.target 属性</code>。在通过 new 运算符被初始化的函数或构造方法中，new.target 返回一个指向构造方法或函数的引用。在普通的函数调用中，new.target 的值是 undefined</li>
+<li> <code>箭头函数不绑定Arguments 对象</code>。取而代之用 rest 参数…解决。由于 箭头函数没有自己的 this 指针，通过 call() 或 apply() 方法调用一个函数时，只能传递参数（不能绑定 this），他们的第一个参数会被忽略。（这种现象对于 bind 方法同样成立）</li>
+<li> 箭头函数通过 call() 或 apply() 方法调用一个函数时，只传入了一个参数，对 this 并没有影响。</li>
+<li> 箭头函数没有原型属性 Fn.prototype 值为 undefined</li>
+<li> 箭头函数不能当做 Generator 函数,不能使用 yield 关键字</li>
+</ol>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/biubiuxixiya/p/8610594.html">箭头函数与普通函数的区别</a></p>
+<h3 id="原型-amp-amp-原型链"><a href="#原型-amp-amp-原型链" class="headerlink" title="原型 &amp;&amp; 原型链"></a>原型 &amp;&amp; 原型链</h3><p><strong>原型关系：</strong></p>
+<ul>
+<li>每个 class 都有显示原型 prototype</li>
+<li>每个实例都有隐式原型 <code>__proto__</code></li>
+<li>实例的 <code>__proto__</code> 指向对应 class 的 prototype</li>
+</ul>
+<p>‌ <strong>原型:</strong>   在 JS 中，每当定义一个对象（函数也是对象）时，对象中都会包含一些预定义的属性。其中每个<code>函数对象</code>都有一个<code>prototype</code>  属性，这个属性指向函数的<code>原型对象</code>。</p>
+<p>原型链：函数的原型链对象 constructor 默认指向函数本身，原型对象除了有原型属性外，为了实现继承，还有一个原型链指针<strong>proto</strong>,该指针是指向上一层的原型对象，而上一层的原型对象的结构依然类似。因此可以利用<strong>proto</strong>一直指向 Object 的原型对象上，而 Object 原型对象用 Object.prototype.** proto** = null 表示原型链顶端。如此形成了 js 的原型链继承。同时所有的 js 对象都有 Object 的基本防范</p>
+<p><strong>特点:</strong>  <code>JavaScript</code>对象是通过引用来传递的，我们创建的每个新对象实体中并没有一份属于自己的原型副本。当我们修改原型时，与之相关的对象也会继承这一改变。</p>
+<h3 id="new-运算符的实现机制"><a href="#new-运算符的实现机制" class="headerlink" title="new 运算符的实现机制"></a>new 运算符的实现机制</h3><ol>
+<li> 首先创建了一个新的<code>空对象</code></li>
+<li> <code>设置原型</code>，将对象的原型设置为函数的<code>prototype</code>对象。</li>
+<li> 让函数的<code>this</code>指向这个对象，执行构造函数的代码（为这个新对象添加属性）</li>
+<li> 判断函数的返回值类型，如果是值类型，返回创建的对象。如果是引用类型，就返回这个引用类型的对象。</li>
+</ol>
+<h3 id="EventLoop-事件循环"><a href="#EventLoop-事件循环" class="headerlink" title="EventLoop 事件循环"></a>EventLoop 事件循环</h3><p><code>JS</code>是单线程的，为了防止一个函数执行时间过长阻塞后面的代码，所以会先将同步代码压入执行栈中，依次执行，将异步代码推入异步队列，异步队列又分为宏任务队列和微任务队列，因为宏任务队列的执行时间较长，所以微任务队列要优先于宏任务队列。微任务队列的代表就是，<code>Promise.then</code>，<code>MutationObserver</code>，宏任务的话就是<code>setImmediate setTimeout setInterval</code></p>
+<p>JS 运行的环境。一般为浏览器或者 Node。 在浏览器环境中，有 JS 引擎线程和渲染线程，且两个线程互斥。 Node 环境中，只有 JS 线程。 不同环境执行机制有差异，不同任务进入不同 Event Queue 队列。 当主程结束，先执行准备好微任务，然后再执行准备好的宏任务，一个轮询结束。</p>
+<h4 id="浏览器中的事件环（Event-Loop"><a href="#浏览器中的事件环（Event-Loop" class="headerlink" title="浏览器中的事件环（Event Loop)"></a><strong>浏览器中的事件环（Event Loop)</strong></h4><p>事件环的运行机制是，先会执行栈中的内容，栈中的内容执行后执行微任务，微任务清空后再执行宏任务，先取出一个宏任务，再去执行微任务，然后在取宏任务清微任务这样不停的循环。</p>
+<ul>
+<li><p>eventLoop 是由 JS 的宿主环境（浏览器）来实现的；</p>
+</li>
+<li><p>事件循环可以简单的描述为以下四个步骤:</p>
+<ol>
+<li> 函数入栈，当 Stack 中执行到异步任务的时候，就将他丢给 WebAPIs,接着执行同步任务,直到 Stack 为空；</li>
+<li> 此期间 WebAPIs 完成这个事件，把回调函数放入队列中等待执行（微任务放到微任务队列，宏任务放到宏任务队列）</li>
+<li> 执行栈为空时，Event Loop 把微任务队列执行清空；</li>
+<li> 微任务队列清空后，进入宏任务队列，取队列的第一项任务放入 Stack(栈）中执行，执行完成后，查看微任务队列是否有任务，有的话，清空微任务队列。重复 4，继续从宏任务中取任务执行，执行完成之后，继续清空微任务，如此反复循环，直至清空所有的任务。</li>
+</ol>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/342e581223d2471d9484fc48beb9f8e1~tplv-k3u1fbpfcp-zoom-1.image" alt="事件循环流程" loading="lazy"></p>
+</li>
+<li><p>浏览器中的任务源(task):</p>
+<ul>
+<li><code>宏任务(macrotask)</code>：<br>宿主环境提供的，比如浏览器<br>ajax、setTimeout、setInterval、setTmmediate(只兼容 ie)、script、requestAnimationFrame、messageChannel、UI 渲染、一些浏览器 api</li>
+<li><code>微任务(microtask)</code>：<br>语言本身提供的，比如 promise.then<br>then、queueMicrotask(基于 then)、mutationObserver(浏览器提供)、messageChannel 、mutationObersve</li>
+</ul>
+</li>
+</ul>
+<p>传送门 ☞ <a target="_blank" rel="noopener" href="https://juejin.cn/post/7001881781125251086"># 宏任务和微任务</a></p>
+<h4 id="Node-环境中的事件环（Event-Loop"><a href="#Node-环境中的事件环（Event-Loop" class="headerlink" title="Node 环境中的事件环（Event Loop)"></a><strong>Node 环境中的事件环（Event Loop)</strong></h4><p><code>Node</code>是基于 V8 引擎的运行在服务端的<code>JavaScript</code>运行环境，在处理高并发、I/O 密集(文件操作、网络操作、数据库操作等)场景有明显的优势。虽然用到也是 V8 引擎，但由于服务目的和环境不同，导致了它的 API 与原生 JS 有些区别，其 Event Loop 还要处理一些 I/O，比如新的网络连接等，所以 Node 的 Event Loop(事件环机制)与浏览器的是不太一样。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e362c1770f62428fbf3faabd99d2a64c~tplv-k3u1fbpfcp-zoom-1.image" alt="2020120317343116.png" loading="lazy"> 执行顺序如下：</p>
+<ul>
+<li><code>timers</code>: 计时器，执行 setTimeout 和 setInterval 的回调</li>
+<li><code>pending callbacks</code>: 执行延迟到下一个循环迭代的 I/O 回调</li>
+<li><code>idle, prepare</code>: 队列的移动，仅系统内部使用</li>
+<li><code>poll轮询</code>: 检索新的 I/O 事件;执行与 I/O 相关的回调。事实上除了其他几个阶段处理的事情，其他几乎所有的异步都在这个阶段处理。</li>
+<li><code>check</code>: 执行<code>setImmediate</code>回调，setImmediate 在这里执行</li>
+<li><code>close callbacks</code>: 执行<code>close</code>事件的<code>callback</code>，一些关闭的回调函数，如：socket.on(‘close’, …)</li>
+</ul>
+<h3 id="setTimeout、Promise、Async-Await-的区别"><a href="#setTimeout、Promise、Async-Await-的区别" class="headerlink" title="setTimeout、Promise、Async/Await 的区别"></a>setTimeout、Promise、Async/Await 的区别</h3><ol>
+<li><p>setTimeout</p>
+<p> settimeout 的回调函数放到宏任务队列里，等到执行栈清空以后执行。</p>
+</li>
+<li><p>Promise</p>
+<p> Promise 本身是<strong>同步的立即执行函数</strong>， 当在 executor 中执行 resolve 或者 reject 的时候, 此时是异步操作， 会先执行 then/catch 等，当主栈完成后，才会去调用 resolve/reject 中存放的方法执行。</p>
+ <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'script start'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> promise1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'promise1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'promise1 end'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'promise2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'settimeout'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'script end'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 输出顺序: script start->promise1->promise1 end->script end->promise2->settimeout</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>async/await</p>
+<pre><code> async 函数返回一个 Promise 对象，当函数执行的时候，一旦遇到 await 就会先返回，等到触发的异步操作完成，再执行函数体内后面的语句。可以理解为，是让出了线程，跳出了 async 函数体。
+
+ <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">async1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'async1 start'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">await</span> <span class="token function">async2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'async1 end'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">async2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'async2'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'script start'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">async1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'script end'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 输出顺序：script start->async1 start->async2->script end->async1 end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
+<p> 传送门 ☞ <a target="_blank" rel="noopener" href="https://juejin.cn/post/6999651011304357925"># JavaScript Promise 专题</a></p>
+</li>
+</ol>
+<h3 id="Async-Await-如何通过同步的方式实现异步"><a href="#Async-Await-如何通过同步的方式实现异步" class="headerlink" title="Async/Await 如何通过同步的方式实现异步"></a>Async/Await 如何通过同步的方式实现异步</h3><p>Async/Await 就是一个<strong>自执行</strong>的 generate 函数。利用 generate 函数的特性把异步的代码写成“同步”的形式,第一个请求的返回值作为后面一个请求的参数,其中每一个参数都是一个 promise 对象.</p>
+<h3 id="介绍节流防抖原理、区别以及应用"><a href="#介绍节流防抖原理、区别以及应用" class="headerlink" title="介绍节流防抖原理、区别以及应用"></a>介绍节流防抖原理、区别以及应用</h3><p><code>节流</code>：事件触发后，规定时间内，事件处理函数不能再次被调用。也就是说在规定的时间内，函数只能被调用一次，且是最先被触发调用的那次。</p>
+<p><code>防抖</code>：多次触发事件，事件处理函数只能执行一次，并且是在触发操作结束时执行。也就是说，当一个事件被触发准备执行事件函数前，会等待一定的时间（这时间是码农自己去定义的，比如 1 秒），如果没有再次被触发，那么就执行，如果被触发了，那就本次作废，重新从新触发的时间开始计算，并再次等待 1 秒，直到能最终执行！</p>
+<p><code>使用场景</code>：<br>节流：滚动加载更多、搜索框搜的索联想功能、高频点击、表单重复提交……<br>防抖：搜索框搜索输入，并在输入完以后自动搜索、手机号，邮箱验证输入检测、窗口大小 resize 变化后，再重新渲染。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
+ * 节流函数 一个函数执行一次后，只有大于设定的执行周期才会执行第二次。有个需要频繁触发的函数，出于优化性能的角度，在规定时间内，只让函数触发的第一次生效，后面的不生效。
+ * @param fn要被节流的函数
+ * @param delay规定的时间
+ */</span>
+<span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> delay</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">//记录上一次函数触发的时间</span>
+  <span class="token keyword">var</span> lastTime <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//记录当前函数触发的时间</span>
+    <span class="token keyword">var</span> nowTime <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>nowTime <span class="token operator">-</span> lastTime <span class="token operator">></span> delay<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">//修正this指向问题</span>
+      <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">//同步执行结束时间</span>
+      lastTime <span class="token operator">=</span> nowTime<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+document<span class="token punctuation">.</span>onscroll <span class="token operator">=</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'scllor事件被触发了'</span> <span class="token operator">+</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 防抖函数  一个需要频繁触发的函数，在规定时间内，只让最后一次生效，前面的不生效
+ * @param fn要被节流的函数
+ * @param delay规定的时间
+ */</span>
+<span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> delay</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">//记录上一次的延时器</span>
+  <span class="token keyword">var</span> timer <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//清除上一次的演示器</span>
+    <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//重新设置新的延时器</span>
+    timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">//修正this指向问题</span>
+      <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'btn'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>onclick <span class="token operator">=</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'按钮被点击了'</span> <span class="token operator">+</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="Donate" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">I'm so cute. Please give me money.</div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>KinXpeng</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://blog.cins.cc/2022/11/JS/1103/" title="JavaScript基础知识">https://blog.cins.cc/2022/11/JS/1103/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul><script>document.addEventListener('copy', function (event) {
+  const clipboardData = event.clipboardData || window.clipboardData;
+  if (!clipboardData) { return; }
+  const text = window.getSelection().toString();
+  if (text) {
+    event.preventDefault();
+    clipboardData.setData('text/plain', text + '\n\nPost author: KinXpeng\nPost link: https://blog.cins.cc/2022/11/JS/1103/\nCopyright Notice: All articles in this blog are licensed under CC BY-NC-SA 4.0 unless otherwise stated.');
+  }
+});</script></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2022/11/react/1104/" rel="prev" title="React基础知识"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">React基础知识</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2022/11/Fundamentals/1102/" rel="next" title="浏览器前端相关详解"><span class="post-nav-text">浏览器前端相关详解</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2022 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> KinXpeng</span></div><div class="live-time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2022-05-01T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = ` ${passDay} Days ${passHour} Hours ${passMinute} Minutes ${passSecond} Seconds`;
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><script>function initMourn() {
+  const date = new Date();
+  const today = (date.getMonth() + 1) + "-" + date.getDate()
+  const mourn_days = ["4-4","9-18","05-12"]
+  if (mourn_days.includes(today)) {
+    document.documentElement.style.filter = "grayscale(1)";
+  }
+}
+initMourn();</script></div></body></html>
