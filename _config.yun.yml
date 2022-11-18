@@ -191,3 +191,19 @@ mourn:
 
 wordcloud:
   enable: true
+
+# 打赏
+reward:
+  enable: true # 放在文章首部单独开启 reward: false
+  icon: icon-hand-coin-line
+  comment: Can you give me a reward?
+  # url: https://github.com/YunYouJun/yunyoujun.github.io/issues/96
+  methods:
+    - name: 支付宝
+      path: https://kinxpeng.oss-cn-beijing.aliyuncs.com/image/paycode/541668755686_.pic.jpg
+      color: '#00A3EE'
+      icon: icon-alipay-line
+    - name: 微信支付
+      path: https://kinxpeng.oss-cn-beijing.aliyuncs.com/image/paycode/531668755685_.pic.jpg
+      color: '#2DC100'
+      icon: icon-wechat-pay-line
