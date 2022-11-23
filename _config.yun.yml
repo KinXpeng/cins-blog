@@ -41,21 +41,15 @@ menu:
     - type: tags
       path: /tags/
       icon: icon-price-tag-3-line
-    # - path: https://www.yunyoujun.cn
-    #   icon: icon-cloud-line
-    #   count: 你猜
-    - type: links
-      path: /links/
-      icon: icon-genderless-line
-      color: dodgerblue
-      count: 1
+    # - type: links
+    #   path: /links/
+    #   icon: icon-genderless-line
+    #   color: dodgerblue
+    #   count: 1
   custom:
-    title: '相册'
-    path: /albums/
-    icon: icon-settings-line
-
-albums:
-  enable: true
+    title: '主页'
+    path: https://cins.cc
+    icon: icon-disc-line
 
 # colors:
 # primary: '#6200ee'
@@ -133,7 +127,7 @@ bg_image:
   url: https://kinxpeng.oss-cn-beijing.aliyuncs.com/image/cins-blog/2.jpeg?versionId=CAEQLRiBgMD.3tm7hBgiIDhkOGViMGFmMTIwNTQyZDU4MTJkNDljZDYyNzg0ZTIw
   dark: https://kinxpeng.oss-cn-beijing.aliyuncs.com/image/cins-blog/1.webp?versionId=CAEQLRiBgMDE59W7hBgiIDg4MWJkYTBhNDk0MTRkY2I5YWEyYjkwMWFjYWU1ZDE0
   blur: 5px # 设置背景模糊程度
-  opacity: 0.8
+  opacity: 0.6
 trianglify:
   enable: false
   cellSize: 75
@@ -198,7 +192,6 @@ reward:
   enable: true # 放在文章首部单独开启 reward: false
   icon: icon-hand-coin-line
   comment: Can you give me a reward?
-  # url: https://github.com/YunYouJun/yunyoujun.github.io/issues/96
   methods:
     - name: 支付宝
       path: https://kinxpeng.oss-cn-beijing.aliyuncs.com/image/paycode/541668755686_.pic.jpg
