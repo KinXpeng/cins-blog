@@ -1,7 +1,7 @@
 favicon: /favicon.ico
 
 mode: auto
-language: zh-CN
+language: zh-CN #en
 banner:
   enable: true
   title: 倾倾倾风
@@ -59,7 +59,7 @@ albums:
 
 # colors:
 # primary: '#6200ee'
-# bg: "#F5F5F5"
+# bg: '#F5F5F5'
 # selection_bg: '#8e71c1' # 选取文字时的背景色
 # 标签云中标签的起始色和结束色
 # tag_start_color:
@@ -124,7 +124,7 @@ social:
 
 # 公告
 notice:
-  enable: false
+  enable: true
   content: 部分文章来自博主的掘金技术社区！(https://juejin.cn/user/3281399880616903)
 
 # 背景图片
@@ -151,7 +151,7 @@ sidebar:
 
 # 关闭 highlight
 highlight:
-  enable: false
+  enable: true
 # 启用 prism
 prismjs:
   enable: true
@@ -184,10 +184,11 @@ footer:
     suffix: (●'◡'●)
     start_time: '2022-05-01T00:00:00'
 
+# 全国默哀日
 mourn:
   enable: true
   days:
-    - '05-12'
+    - '4-4'
 
 wordcloud:
   enable: true

@@ -3,6 +3,7 @@ title: 相册集
 date: 2022-05-03 16:27:24
 updated: 2022-05-03 16:27:24
 type: albums
+comments: false
 albums:
   - caption: 夕阳西下
     url: /albums/sunset.html
