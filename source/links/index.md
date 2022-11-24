@@ -20,6 +20,13 @@ links:
     desc: Simple template.
     color: '#6a2ce7' # 代表色
     email: # 非必须
+  - url: https://user-dhw.github.io
+    avatar: https://p3-passport.byteimg.com/img/user-avatar/3ad9da0ae1fbd0e3b3ccce34e6441f73~100x100.awebp
+    name: dinghw
+    blog: 8岁前端
+    desc: 8岁前端工程师
+    color: '#ac00e1' # 代表色
+    email: # 非必须
 placeholder: 还没想好说些什么 # 默认对友链的描述
 tip: 友链加载中～如失败请刷新重试～
 ---
