@@ -183,6 +183,7 @@ mourn:
   enable: true
   days:
     - '4-4'
+    - '11-30'
 
 wordcloud:
   enable: true
