@@ -184,6 +184,9 @@ mourn:
   days:
     - '4-4'
     - '11-30'
+    - '12-1'
+    - '12-2'
+    - '12-3'
 
 wordcloud:
   enable: true
