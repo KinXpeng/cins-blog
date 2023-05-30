@@ -1,7 +1,7 @@
 ---
 title: go语言基础
 date: 2023-03-16 22:16:08
-id: 1601
+id: 0316
 tags: 'Go'
 categories: 'Go'
 ---
